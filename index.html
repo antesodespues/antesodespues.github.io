@@ -24,11 +24,11 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 #filters { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; padding:1.2rem 1rem 0.5rem; }
 .filter-btn { padding:0.3rem 0.85rem; border-radius:999px; border:1.5px solid var(--border2); background:var(--filter-bg); color:var(--text2); font-size:0.75rem; font-family:'DM Sans',sans-serif; cursor:pointer; transition:all 0.2s; }
 .filter-btn:hover { background:var(--filter-bg); color:var(--text); }
-.filter-btn.active { background:var(--filter-active-bg); border-color:#f9ca24; color:var(--filter-active-color); font-weight:600; }
+.filter-btn.active { background:#1a1a2e; border-color:#1a1a2e; color:#fff; font-weight:600; }
 
 #mode-bar { display:flex; justify-content:center; gap:0.75rem; padding:0.75rem 1rem 1.2rem; }
 .mode-btn { padding:0.4rem 1.2rem; border-radius:8px; border:1.5px solid var(--border2); background:transparent; color:var(--text3); font-size:0.8rem; font-family:'DM Sans',sans-serif; cursor:pointer; transition:all 0.2s; }
-.mode-btn.active { background:var(--mode-active-bg); border-color:#f9ca24; color:var(--mode-active-color); font-weight:600; }
+.mode-btn.active { background:#1a1a2e; border-color:#1a1a2e; color:#fff; font-weight:600; }
 
 #card-grid { display:flex; flex-wrap:wrap; gap:28px; justify-content:center; padding:0.5rem 1.5rem 5rem; max-width:1200px; margin:0 auto; background:#fff; }
 #card-grid.hidden { display:none; }
@@ -50,7 +50,7 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 .game-badge .dot { width:6px; height:6px; border-radius:50%; background:#f9ca24; flex-shrink:0; }
 
 .card-symbol { font-size:52px; text-align:center; margin:4px 0 14px; position:relative; z-index:1; line-height:1; }
-.card-cat-label { font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75); text-align:center; margin-bottom:8px; position:relative; z-index:1; }
+.card-cat-label { font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.75); text-align:center; margin-bottom:10px; margin-top:8px; position:relative; z-index:1; }
 .card-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:19px; font-weight:800; color:#fff; line-height:1.25; text-align:center; position:relative; z-index:1; flex:1; display:flex; align-items:center; justify-content:center; }
 .card-hint { font-size:10px; color:rgba(255,255,255,0.45); text-align:center; position:relative; z-index:1; margin-top:8px; letter-spacing:0.04em; }
 
@@ -108,7 +108,7 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 .mini-card { width:130px; height:160px; border-radius:12px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.1); flex-shrink:0; display:flex; flex-direction:column; margin:4px 0; }
 .mini-card .mc-bg { flex:1; padding:10px 10px 8px; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; }
 .mini-card .mc-bg::before { content:''; position:absolute; top:-20px; right:-20px; width:70px; height:70px; border-radius:50%; background:rgba(255,255,255,0.15); pointer-events:none; }
-.mini-card .mc-symbol { font-size:22px; text-align:center; margin-bottom:6px; position:relative; z-index:1; line-height:1; flex-shrink:0; }
+.mini-card .mc-symbol { display:none; }
 .mini-card .mc-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:10.5px; font-weight:700; color:#fff; text-align:center; line-height:1.3; position:relative; z-index:1; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
 .mini-card .mc-strip { padding:6px 10px; text-align:center; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:15px; color:#1a1a2e; flex-shrink:0; }
 .mini-card.blur-year .mc-strip { filter:blur(5px); }
@@ -127,11 +127,11 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 .mini-cat-8 .mc-bg { background:linear-gradient(145deg,#5470a8,#7090c4); } .mini-cat-8 .mc-strip { background:#90aedd; }
 
 #check-btn,#next-btn,#restart-btn { display:block; margin:0 auto 0.75rem; padding:0.7rem 2.2rem; border-radius:10px; border:none; font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer; transition:all 0.2s; }
-#check-btn { background:var(--check-bg); color:var(--check-color); }
-#check-btn:hover { background:#fbbf24; }
-#next-btn { background:var(--next-bg); color:var(--next-color); border:1px solid var(--next-border); display:none; }
+#check-btn { background:transparent; color:var(--text); border:1.5px solid var(--border2); }
+#check-btn:hover { background:var(--filter-bg); }
+#next-btn { background:transparent; color:var(--text); border:1.5px solid var(--border2); display:none; }
 #next-btn:hover { background:var(--filter-bg); }
-#restart-btn { background:transparent; color:var(--restart-color); border:1.5px solid var(--restart-border); display:none; }
+#restart-btn { background:transparent; color:var(--text); border:1.5px solid var(--border2); display:none; }
 #restart-btn:hover { background:var(--filter-bg); }
 
 footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--footer-color); border-top:1px solid var(--border); }
@@ -168,7 +168,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 .mode-option .mo-desc { font-size:0.75rem; color:var(--text2); margin-top:2px; }
 .modal-back-btn { display:block;margin:0.85rem auto 0;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--modal-back);cursor:pointer;padding:0.4rem 1rem;border-radius:8px;transition:color 0.15s; }
 .modal-back-btn:hover { color:var(--modal-back-hover); }
-.cat-toggle { display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0.85rem;border-radius:12px;border:2px solid var(--modal-opt-border);background:var(--modal-bg);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;text-align:left;width:100%; }
+.cat-toggle { display:flex;align-items:center;gap:0.5rem;padding:0.6rem 0.85rem;border-radius:12px;border:2px solid var(--modal-opt-border);background:var(--modal-bg);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif;text-align:left;width:100%; }
 .cat-toggle:hover { border-color:var(--border2); }
 .cat-toggle.selected { border-color:var(--cat-color); background:var(--cat-bg); }
 .cat-toggle .ct-icon { font-size:1.2rem; flex-shrink:0; }
@@ -194,7 +194,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 .detail-badge { display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.35); border-radius:20px; padding:3px 10px; margin-bottom:14px; position:relative; z-index:1; }
 .detail-badge span { font-size:9px; font-weight:600; color:#fff; letter-spacing:0.1em; text-transform:uppercase; }
 .detail-badge .dot { width:5px; height:5px; border-radius:50%; background:#f9ca24; flex-shrink:0; }
-.detail-symbol { font-size:44px; margin-bottom:10px; position:relative; z-index:1; line-height:1; }
+.detail-symbol { font-size:44px; margin-bottom:0; position:relative; z-index:1; line-height:1; min-height:0; }
 .detail-cat { font-size:9px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:8px; position:relative; z-index:1; }
 .detail-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:18px; font-weight:800; color:#fff; line-height:1.25; text-align:center; position:relative; z-index:1; }
 .detail-strip { padding:12px 20px; display:flex; align-items:center; justify-content:center; }
@@ -326,10 +326,10 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
     --border: rgba(255,255,255,0.08);
     --border2: rgba(255,255,255,0.15);
     --filter-bg: rgba(255,255,255,0.06);
-    --filter-active-bg: rgba(249,202,36,0.18);
-    --filter-active-color: #f9ca24;
-    --mode-active-bg: rgba(249,202,36,0.15);
-    --mode-active-color: #f9ca24;
+    --filter-active-bg: #f0f0f0;
+    --filter-active-color: #1a1a2e;
+    --mode-active-bg: #f0f0f0;
+    --mode-active-color: #1a1a2e;
     --stat-val: #f0f0f0;
     --stat-lbl: rgba(255,255,255,0.35);
     --instr-bg: rgba(249,202,36,0.08);
@@ -414,7 +414,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 <body>
 
 <header>
-  <h1>Antes o Después <span style="font-size:clamp(0.5rem,1.5vw,0.7rem);font-weight:700;letter-spacing:0.12em;background:rgba(249,202,36,0.18);color:var(--filter-active-color);border:1.5px solid #f9ca24;border-radius:999px;padding:3px 10px;vertical-align:middle;font-family:'DM Sans',sans-serif;text-transform:uppercase;">Beta</span></h1>
+  <h1>Antes o Después <span style="font-size:clamp(0.5rem,1.5vw,0.7rem);font-weight:700;letter-spacing:0.12em;background:#1a1a2e;color:#fff;border:1.5px solid #1a1a2e;border-radius:999px;padding:3px 10px;vertical-align:middle;font-family:'DM Sans',sans-serif;text-transform:uppercase;">Beta</span></h1>
   <p>La igualdad de género será real antes o después. Tú decides.</p>
   <p style="font-size:0.78rem;color:rgba(0,0,0,0.35);margin-top:0.5rem;max-width:540px;margin-left:auto;margin-right:auto;line-height:1.6;">Juega y ordena en una línea temporal hitos, avances y personajes relacionados con la conquista de los derechos de las mujeres y de la igualdad.</p>
 </header>
@@ -435,26 +435,26 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 </div>
 
 <div id="mode-bar">
-  <button class="mode-btn active" onclick="setMode('explore')">🃏 Explorar cartas</button>
-  <button class="mode-btn" onclick="setMode('play')">🎮 Jugar</button>
+  <button class="mode-btn active" onclick="setMode('explore')">Explorar cartas</button>
+  <button class="mode-btn" onclick="setMode('play')">Jugar</button>
 </div>
 
 <div id="filters">
   <button class="filter-btn active" data-cat="all">Todas</button>
-  <button class="filter-btn" data-cat="1">⭐ Mujeres pioneras</button>
-  <button class="filter-btn" data-cat="2">⚖️ Legislación</button>
-  <button class="filter-btn" data-cat="3">✊ Movimientos sociales</button>
-  <button class="filter-btn" data-cat="4">💜 Cuerpos y salud</button>
-  <button class="filter-btn" data-cat="5">🛡️ Violencia</button>
-  <button class="filter-btn" data-cat="6">🎨 Cultura</button>
-  <button class="filter-btn" data-cat="7">🏆 Deporte</button>
-  <button class="filter-btn" data-cat="8">🔬 Ciencia</button>
+  <button class="filter-btn" data-cat="1">Mujeres pioneras</button>
+  <button class="filter-btn" data-cat="2">Legislación</button>
+  <button class="filter-btn" data-cat="3">Movimientos sociales</button>
+  <button class="filter-btn" data-cat="4">Cuerpos y salud</button>
+  <button class="filter-btn" data-cat="5">Violencia</button>
+  <button class="filter-btn" data-cat="6">Cultura</button>
+  <button class="filter-btn" data-cat="7">Deporte</button>
+  <button class="filter-btn" data-cat="8">Ciencia</button>
 </div>
 
 <div id="card-grid"></div>
 
 <div id="game-zone">
-  <div class="game-instructions">
+  <div class="game-instructions" id="game-instructions">
     <strong>¿Cómo jugar?</strong> Arrastra la carta dorada al hueco correcto de la línea del tiempo. Si aciertas, se queda y la línea crece. Si fallas, se descarta. ¡Intenta colocar todas las cartas!
   </div>
   <div id="deck-counter"></div>
@@ -624,7 +624,6 @@ function buildCard(card){
     <div class="card-face card-front">
       <div class="card-bg">
         <div class="game-badge"><div class="dot"></div><span>Antes o Después</span></div>
-        <div class="card-symbol">${CAT[card.cat].symbol}</div>
         <div class="card-cat-label">${CAT[card.cat].name}</div>
         <div class="card-title">${card.title}</div>
         <div class="card-hint">Toca para ver la fecha ↓</div>
@@ -681,7 +680,7 @@ function setMode(mode){
 function buildMini(card, blurYear, isNew){
   const mc=document.createElement('div');
   mc.className='mini-card mini-cat-'+card.cat+(blurYear?' blur-year':'')+(isNew?' is-new':'');
-  mc.innerHTML=`<div class="mc-bg"><div class="mc-symbol">${CAT[card.cat].symbol}</div><div class="mc-title">${card.title}</div></div><div class="mc-strip">${card.year}</div>`;
+  mc.innerHTML=`<div class="mc-bg"><div class="mc-title">${card.title}</div></div><div class="mc-strip">${card.year}</div>`;
   if(!isNew){
     mc.style.cursor='pointer';
     mc.addEventListener('click', ()=>openDetail(card));
@@ -695,7 +694,7 @@ function openDetail(card){
   const strips={1:'#c4a0ed',2:'#93bfea',3:'#8dd4b0',4:'#eda8be',5:'#e8a0a0',6:'#ecc27a',7:'#80d4bf',8:'#90aedd'};
   $('detail-bg').style.background='linear-gradient(145deg,'+cats[card.cat]+','+cats2[card.cat]+')';
   $('detail-strip').style.background=strips[card.cat];
-  $('detail-symbol').textContent=CAT[card.cat].symbol;
+  $('detail-symbol').textContent='';
   $('detail-cat').textContent=CAT[card.cat].name;
   $('detail-title').textContent=card.title;
   $('detail-year').textContent=card.year;
@@ -758,6 +757,7 @@ function stopCountdown(){
 function autoDiscard(){
   stopCountdown();
   $('stats-btn').style.display='block';
+  $('game-instructions').style.display='none';
   roundsPlayed++;
   streak=0;
   const decade=Math.floor(newCard.year/10)*10+'s';
@@ -839,7 +839,7 @@ function buildCatToggles(){
     btn.className = 'cat-toggle'+(sel?' selected':'');
     btn.style.setProperty('--cat-color', colors[id]);
     btn.style.setProperty('--cat-bg', bgs[id]);
-    btn.innerHTML = '<span class="ct-icon">'+cat.symbol+'</span><span class="ct-name">'+cat.name+'</span><span class="ct-check">'+(sel?'✓':'')+'</span>';
+    btn.innerHTML = '<span class="ct-name">'+cat.name+'</span><span class="ct-check">'+(sel?'✓':'')+'</span>';
     btn.addEventListener('click',()=>{
       if(chosenCats.has(Number(id))) chosenCats.delete(Number(id)); else chosenCats.add(Number(id));
       buildCatToggles();
@@ -858,6 +858,7 @@ function startGameWithSize(size){
   $('mode-selector').classList.remove('active');
   $('restart-btn').style.display='none';
   $('share-bar').style.display='none';
+  $('game-instructions').style.display='block';
   $('result-msg').textContent='';
   $('result-msg').className='';
   $('check-btn').style.display='block';
@@ -968,6 +969,7 @@ function renderHand(){
 function checkOrder(){
   stopCountdown();
   $('stats-btn').style.display='block';
+  $('game-instructions').style.display='none';
   if(chosenPos<0){$('result-msg').textContent='Arrastra la carta a un hueco de la línea primero.';return;}
   const combined=[...tlCards];
   combined.splice(chosenPos,0,newCard);
@@ -1160,15 +1162,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
       <p>Elige la duración de tu partida</p>
       <div class="mode-options">
         <button class="mode-option" onclick="chooseSize(16)">
-          <div class="mo-icon">⚡</div>
+          
           <div><div class="mo-name">Exprés</div><div class="mo-desc">16 cartas · Partida rápida</div></div>
         </button>
         <button class="mode-option" onclick="chooseSize(40)">
-          <div class="mo-icon">🎯</div>
+          
           <div><div class="mo-name">Media</div><div class="mo-desc">40 cartas · Partida equilibrada</div></div>
         </button>
         <button class="mode-option" onclick="chooseSize(80)">
-          <div class="mo-icon">🏛️</div>
+          
           <div><div class="mo-name">Extendida</div><div class="mo-desc">80 cartas · Partida completa</div></div>
         </button>
       </div>
@@ -1180,7 +1182,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       <h2>¿Qué categorías?</h2>
       <p id="step-cats-subtitle">Selecciona una o varias</p>
       <div id="cat-toggles" style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem;"></div>
-      <button onclick="goToStepTimer()" id="start-game-btn" style="display:block;width:100%;padding:0.75rem;border-radius:12px;border:none;background:#f9ca24;color:#1a1a2e;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:0.95rem;cursor:pointer;transition:all 0.2s;">Continuar →</button>
+      <button onclick="goToStepTimer()" id="start-game-btn" style="display:block;width:100%;padding:0.75rem;border-radius:12px;border:1.5px solid rgba(0,0,0,0.2);background:transparent;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:all 0.2s;">Continuar →</button>
       <button onclick="goBackToSize()" class="modal-back-btn" id="back-to-size-btn">← Cambiar duración</button>
     </div>
 
@@ -1190,11 +1192,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
       <p id="step-timer-subtitle">Tienes 10 segundos para colocar cada carta</p>
       <div class="mode-options" style="margin-top:0.5rem;">
         <button class="mode-option" onclick="confirmTimer(false)">
-          <div class="mo-icon">🧘</div>
+          
           <div><div class="mo-name">Sin límite de tiempo</div><div class="mo-desc">Juega a tu ritmo</div></div>
         </button>
         <button class="mode-option" onclick="confirmTimer(true)">
-          <div class="mo-icon">⏱️</div>
+          
           <div><div class="mo-name">Contrarreloj</div><div class="mo-desc">10 segundos por carta</div></div>
         </button>
       </div>
