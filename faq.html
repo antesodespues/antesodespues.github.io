@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ · Antes o Después</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --text2: rgba(0,0,0,0.45);
+  --text3: rgba(0,0,0,0.3);
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.12);
+  --accent: #1a1a2e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111118;
+    --text: #f0f0f0;
+    --text2: rgba(255,255,255,0.5);
+    --text3: rgba(255,255,255,0.3);
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+    --accent: #f0f0f0;
+  }
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text2);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--text); }
+
+header h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+header p {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.section-label:first-child { margin-top: 0; }
+
+.faq-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.faq-q .toggle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text3);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  line-height: 1.4;
+}
+.faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+
+.faq-a {
+  font-size: 0.88rem;
+  color: var(--text2);
+  line-height: 1.75;
+  display: none;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-a a { color: var(--text); }
+.faq-a ul { padding-left: 1.25rem; margin-top: 0.5rem; }
+.faq-a li { margin-bottom: 0.3rem; }
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.72rem;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--text3); }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back-link" href="/">← Volver al juego</a>
+  <h1>Antes o Después</h1>
+  <p>Preguntas frecuentes</p>
+</header>
+
+<main>
+
+  <!-- SOBRE EL JUEGO -->
+  <div class="section-label">Sobre el juego</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Qué es Antes o Después? <span class="toggle">+</span></div>
+    <div class="faq-a">Antes o Después es un juego educativo de línea del tiempo sobre la conquista de los derechos de las mujeres y la igualdad de género. Inspirado en el juego de cartas <em>Timeline</em> de Asmodee, propone ordenar cronológicamente hitos, leyes, referentes y movimientos sociales reales. Está disponible de forma gratuita en <a href="https://antesodespues.app">antesodespues.app</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Cómo se juega? <span class="toggle">+</span></div>
+    <div class="faq-a">Hay dos modos de juego:
+      <ul>
+        <li><strong>Explorar:</strong> puedes ver todas las cartas, filtrarlas por categoría y pulsar sobre cada una para descubrir la fecha y leer la descripción del hito.</li>
+        <li><strong>Jugar:</strong> el juego coloca una primera carta en la línea del tiempo. Con cada turno aparece una nueva carta con la fecha oculta y tienes que arrastrarla al hueco correcto dentro de la línea. Si aciertas, la carta se incorpora a la línea, que crece progresivamente. Si fallas, la carta se descarta.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Cuántas cartas tiene el juego? <span class="toggle">+</span></div>
+    <div class="faq-a">El juego cuenta con 79 cartas repartidas en 8 categorías temáticas: Mujeres pioneras, Avances legislativos, Movimientos sociales, Cuerpos y salud, Violencia machista y resistencias, Cultura y representación, Deporte e igualdad, y Ciencia y tecnología con enfoque de género.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Cuánto dura una partida? <span class="toggle">+</span></div>
+    <div class="faq-a">Al iniciar una partida puedes elegir entre tres modalidades:
+      <ul>
+        <li><strong>Exprés:</strong> 16 cartas, ideal para dinámicas cortas de 10-15 minutos.</li>
+        <li><strong>Media:</strong> 40 cartas, para sesiones de unos 30 minutos.</li>
+        <li><strong>Extendida:</strong> hasta 80 cartas, para una experiencia completa de 45-60 minutos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Qué es el modo contrarreloj? <span class="toggle">+</span></div>
+    <div class="faq-a">Es una opción opcional que puedes activar al inicio de la partida. En modo contrarreloj tienes 10 segundos para colocar cada carta en la línea del tiempo. Si se agota el tiempo, la carta se descarta automáticamente. Añade tensión y es especialmente interesante para grupos que ya conocen el juego.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Se puede jugar en grupo? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí, aunque el juego está diseñado como experiencia individual o de consulta, funciona muy bien en grupo: una persona controla la pantalla mientras el resto debate dónde colocar cada carta antes de confirmar. Esta dinámica suele generar conversaciones muy ricas sobre los hitos y su contexto histórico.</div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="section-label">Contenido y rigor</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿De dónde viene el contenido de las cartas? <span class="toggle">+</span></div>
+    <div class="faq-a">Los hitos han sido seleccionados y redactados a partir de fuentes históricas, legislativas y académicas contrastadas. El criterio de selección combina relevancia histórica, diversidad temática y geográfica, y potencial pedagógico. Puedes consultar la bibliografía completa en la sección de créditos.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Por qué aparecen algunos eventos internacionales y no solo españoles? <span class="toggle">+</span></div>
+    <div class="faq-a">Porque la conquista de derechos es un fenómeno global y muchos hitos internacionales han influido directamente en los avances en España. Incluir eventos como el movimiento #MeToo, la Conferencia de Beijing o la lucha de Malala permite contextualizar los avances locales dentro de una historia más amplia.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Creo que hay un error en una fecha o descripción. ¿Cómo puedo reportarlo? <span class="toggle">+</span></div>
+    <div class="faq-a">Te agradecemos mucho que lo hagas. Puedes escribirnos a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a> indicando la carta, la fecha o dato que crees incorrecto y la fuente que lo contradice. Revisamos todos los reportes y actualizamos el juego cuando se confirman errores.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Por qué Antes o Después no tiene ilustraciones? <span class="toggle">+</span></div>
+    <div class="faq-a">Me encantaría que Antes o Después fuese visualmente más rico e ilustrado — hay muchas historias en las cartas que merecerían una imagen que las acompañara. Pero es un proyecto sin ánimo de lucro que en estos momentos no puede permitirse pagar por diseño o ilustración profesional, y no contemplo usar inteligencia artificial generativa para ello. Prefiero ser honesta sobre esa limitación antes que tomar atajos que no me parecen éticos. Si eres profesional del diseño o la ilustración y el proyecto te interesa, escríbeme a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+  <!-- PARA EDUCADORES -->
+  <div class="section-label">Para profesionales de la educación</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Para qué edades está recomendado? <span class="toggle">+</span></div>
+    <div class="faq-a">El juego está pensado principalmente para adolescentes y personas adultas (a partir de 14 años aproximadamente). Algunos contenidos relacionados con violencia machista o derechos reproductivos requieren un contexto adecuado y acompañamiento por parte de quien dinamiza la sesión.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Puedo usarlo en el aula o en una dinámica formativa? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí, y es precisamente para lo que está diseñado. Antes o Después está bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>, lo que significa que puedes usarlo libremente con fines educativos no comerciales, siempre que cites la fuente. Si lo utilizas en una dinámica, nos encantaría saberlo — escríbeme a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Hay una guía de dinamización disponible? <span class="toggle">+</span></div>
+    <div class="faq-a">Estamos preparando una guía completa de dinamización con sugerencias de uso, preguntas para el debate y propuestas de actividades complementarias. Estará disponible próximamente. Si quieres que te avisemos cuando esté lista, escríbeme a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Puedo proyectarlo en una pantalla grande? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí. El juego funciona en cualquier navegador moderno y está optimizado tanto para escritorio como para móvil. Para proyección en grupo recomendamos usarlo en un ordenador conectado a pantalla o proyector, con el modo de juego activado y la dinámica de debate colectivo antes de colocar cada carta.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Puedo sugerir nuevas cartas o categorías? <span class="toggle">+</span></div>
+    <div class="faq-a">¡Por supuesto! El juego está en constante desarrollo y el conocimiento experto de profesionales y especialistas en igualdad es muy valioso para mejorarlo. Puedes enviarnos tus sugerencias a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+  <!-- TÉCNICAS -->
+  <div class="section-label">Aspectos técnicos</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Necesito instalar algo? <span class="toggle">+</span></div>
+    <div class="faq-a">No. Antes o Después funciona directamente en el navegador, sin instalación ni registro. Solo necesitas una conexión a internet para cargarlo la primera vez.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Funciona en móvil? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí, aunque para el modo de juego con la línea del tiempo recomendamos usar el móvil en horizontal o acceder desde un tablet u ordenador para una mejor experiencia. El modo explorar funciona perfectamente en vertical.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Se guardan mis estadísticas entre sesiones? <span class="toggle">+</span></div>
+    <div class="faq-a">Las estadísticas (aciertos, racha, porcentaje) se muestran durante la sesión pero no se guardan entre visitas. Cada vez que recargas la página empiezas de cero. Esta funcionalidad está en nuestra hoja de ruta para futuras versiones.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿El juego es gratuito? ¿Lo seguirá siendo? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí, Antes o Después es gratuito y tiene vocación de seguir siéndolo. Es un proyecto personal con finalidad educativa y social, sin ánimo de lucro. Si quieres apoyarlo, la mejor forma es compartirlo y darnos feedback.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿Está en beta? ¿Qué significa eso? <span class="toggle">+</span></div>
+    <div class="faq-a">Sí, el juego está actualmente en fase beta, lo que significa que es funcional y jugable pero todavía está en desarrollo activo. Pueden aparecer errores ocasionales y seguimos añadiendo mejoras. Tu feedback en esta fase es especialmente valioso — escríbeme a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 <strong>Antes o Después</strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> · <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>
+</footer>
+
+<script>
+function toggle(el) {
+  const item = el.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
