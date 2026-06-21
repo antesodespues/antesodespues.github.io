@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de dinamización · Antes o Después</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --text2: rgba(0,0,0,0.5);
+  --text3: rgba(0,0,0,0.3);
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.12);
+  --accent: #1a1a2e;
+  --cat1: #9b72cf; --cat2: #5e8fd4; --cat3: #4aab7a; --cat4: #d4688a;
+  --cat5: #c96060; --cat6: #c98a3a; --cat7: #3aab8a; --cat8: #5470a8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111118; --text: #f0f0f0; --text2: rgba(255,255,255,0.5);
+    --text3: rgba(255,255,255,0.3); --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.15);
+  }
+}
+
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.7; }
+
+header { text-align: center; padding: 2.5rem 1rem 2rem; border-bottom: 1px solid var(--border); position: relative; }
+.back-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text2); text-decoration:none; margin-bottom:1.5rem; transition:color 0.15s; }
+.back-link:hover { color:var(--text); }
+.logo-wrap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-bottom:0.25rem; }
+header h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.3rem,3.5vw,2rem); font-weight:800; color:var(--text); letter-spacing:0.18em; text-transform:uppercase; }
+header p { margin-top:0.5rem; font-size:0.85rem; color:var(--text2); }
+
+main { max-width:760px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+
+/* INTRO BOX */
+.intro-box { background:rgba(0,0,0,0.02); border:1px solid var(--border); border-radius:16px; padding:1.5rem 1.75rem; margin-bottom:2.5rem; }
+@media (prefers-color-scheme: dark) { .intro-box { background:rgba(255,255,255,0.03); } }
+.intro-box p { font-size:0.92rem; color:var(--text2); line-height:1.75; }
+.intro-box p + p { margin-top:0.75rem; }
+
+/* SECTION */
+.section { margin-bottom:2.5rem; }
+.section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text3); margin-bottom:0.75rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
+h2 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.2rem; font-weight:800; color:var(--text); margin-bottom:0.75rem; }
+h3 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:0.5rem; margin-top:1.25rem; }
+p { font-size:0.9rem; color:var(--text2); line-height:1.75; margin-bottom:0.75rem; }
+ul, ol { padding-left:1.25rem; margin-bottom:0.75rem; }
+li { font-size:0.9rem; color:var(--text2); line-height:1.7; margin-bottom:0.3rem; }
+strong { color:var(--text); font-weight:600; }
+
+/* PHASE CARDS */
+.phases { display:flex; flex-direction:column; gap:1rem; margin-top:1rem; }
+.phase { border-radius:14px; border:1.5px solid var(--border); overflow:hidden; }
+.phase-header { display:flex; align-items:center; gap:0.85rem; padding:0.85rem 1.1rem; border-bottom:1px solid var(--border); }
+.phase-num { width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:0.85rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.phase-title { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.95rem; color:var(--text); }
+.phase-time { font-size:0.72rem; color:var(--text3); margin-left:auto; flex-shrink:0; }
+.phase-body { padding:1rem 1.1rem; }
+.phase-body p { margin-bottom:0.5rem; }
+.phase-body p:last-child { margin-bottom:0; }
+
+/* CATEGORIES GRID */
+.cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; margin-top:1rem; }
+.cat-item { border-radius:10px; padding:0.75rem 1rem; border-left:3px solid; }
+.cat-item h4 { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.82rem; font-weight:700; margin-bottom:2px; }
+.cat-item p { font-size:0.75rem; margin:0; }
+.c1 { border-color:var(--cat1); background:rgba(155,114,207,0.06); } .c1 h4 { color:var(--cat1); }
+.c2 { border-color:var(--cat2); background:rgba(94,143,212,0.06); } .c2 h4 { color:var(--cat2); }
+.c3 { border-color:var(--cat3); background:rgba(74,171,122,0.06); } .c3 h4 { color:var(--cat3); }
+.c4 { border-color:var(--cat4); background:rgba(212,104,138,0.06); } .c4 h4 { color:var(--cat4); }
+.c5 { border-color:var(--cat5); background:rgba(201,96,96,0.06); } .c5 h4 { color:var(--cat5); }
+.c6 { border-color:var(--cat6); background:rgba(201,138,58,0.06); } .c6 h4 { color:var(--cat6); }
+.c7 { border-color:var(--cat7); background:rgba(58,171,138,0.06); } .c7 h4 { color:var(--cat7); }
+.c8 { border-color:var(--cat8); background:rgba(84,112,168,0.06); } .c8 h4 { color:var(--cat8); }
+
+/* CALLOUT */
+.callout { border-radius:12px; padding:1rem 1.25rem; margin:1rem 0; border:1px solid; }
+.callout-tip { background:rgba(74,171,122,0.06); border-color:rgba(74,171,122,0.2); }
+.callout-tip strong { color:var(--cat3); }
+.callout-warn { background:rgba(201,138,58,0.06); border-color:rgba(201,138,58,0.2); }
+.callout-warn strong { color:var(--cat6); }
+.callout p { margin:0; font-size:0.85rem; }
+
+/* NARRATIVE */
+.narrative { border-radius:12px; padding:1.1rem 1.25rem; background:rgba(0,0,0,0.02); border-left:3px solid var(--accent); margin:1rem 0; font-style:italic; }
+@media (prefers-color-scheme: dark) { .narrative { background:rgba(255,255,255,0.03); } }
+.narrative p { margin:0; font-size:0.87rem; }
+
+/* MODES TABLE */
+.modes { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin-top:1rem; }
+.mode-card { border-radius:12px; border:1.5px solid var(--border); padding:0.9rem 1rem; text-align:center; }
+.mode-card .mc-name { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:0.95rem; color:var(--text); margin-bottom:4px; }
+.mode-card .mc-cards { font-size:1.5rem; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; color:var(--text); }
+.mode-card .mc-time { font-size:0.75rem; color:var(--text3); margin-top:2px; }
+@media (max-width:480px) { .modes { grid-template-columns:1fr; } }
+
+/* TIPS LIST */
+.tips { display:flex; flex-direction:column; gap:0.6rem; margin-top:0.75rem; }
+.tip { display:flex; gap:0.75rem; align-items:flex-start; padding:0.65rem 0.85rem; border-radius:10px; background:rgba(0,0,0,0.02); border:1px solid var(--border); }
+@media (prefers-color-scheme: dark) { .tip { background:rgba(255,255,255,0.03); } }
+.tip-icon { font-size:1rem; flex-shrink:0; margin-top:1px; }
+.tip p { margin:0; font-size:0.85rem; }
+
+/* FOOTER */
+footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--text3); border-top:1px solid var(--border); }
+footer a { color:var(--text3); }
+
+/* DOWNLOAD BTN */
+.download-btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.25rem; border-radius:10px; border:1.5px solid var(--border2); background:transparent; color:var(--text); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:0.85rem; text-decoration:none; transition:all 0.15s; margin-top:0.5rem; }
+.download-btn:hover { background:rgba(0,0,0,0.04); }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back-link" href="/">← Volver al juego</a>
+  <div class="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110" width="28" height="38">
+      <path d="M54,4 L54,20 L70,20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="82" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="64" font-weight="800" fill="currentColor" text-anchor="middle">?</text>
+      <line x1="8" y1="96" x2="68" y2="96" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <h1>Antes o Después</h1>
+  </div>
+  <p>Guía de dinamización · Versión digital</p>
+  <a href="guia.pdf" download class="download-btn">↓ Descargar en PDF</a>
+</header>
+
+<main>
+
+  <div class="intro-box">
+    <p><strong>Antes o Después</strong> es un juego coeducativo de línea del tiempo sobre la conquista de los derechos de las mujeres y la igualdad de género. Esta guía está pensada para quienes quieran usarlo en un contexto de dinamización grupal, ya sea proyectando la pantalla en grupo o explorando individualmente.</p>
+    <p>Es especialmente adecuado para dinámicas de grupo en asociaciones, centros juveniles o espacios educativos no formales; para jornadas temáticas sobre derechos humanos, ciencia o cultura; y para actividades vinculadas a efemérides como el 8M o el 25N.</p>
+    <p>El juego automatiza el control de fechas, las estadísticas y la dificultad — lo que libera a quien dinamiza para centrarse en el debate y la reflexión.</p>
+  </div>
+
+  <!-- SOBRE EL JUEGO -->
+  <div class="section">
+    <div class="section-label">Sobre el juego</div>
+    <h2>¿Qué es y para qué sirve?</h2>
+    <p>Antes o Después invita a <strong>ordenar cronológicamente hitos reales</strong> relacionados con la igualdad de género: leyes, movimientos sociales, referentes culturales, avances científicos, logros deportivos… Cada carta es una oportunidad para descubrir, debatir y contextualizar la historia.</p>
+    <p>El objetivo no es demostrar conocimientos previos, sino <strong>abrir la curiosidad y el diálogo</strong> sobre cómo se ha ido construyendo la igualdad a lo largo del tiempo. Cada hito es un punto de partida para la conversación.</p>
+    <p>Según los hitos que se elijan, puede enfocarse más en la <strong>igualdad de oportunidades y la visibilización de referentes femeninos</strong> (con categorías como Mujeres pioneras, Cultura y representación o Ciencia y tecnología) o en la <strong>prevención de la violencia de género</strong> y el análisis de sus causas estructurales (con categorías como Cuerpos y salud, Violencia machista o Movimientos sociales). El primer enfoque es especialmente adecuado si el grupo está al inicio del rango de edad propuesto; el segundo, si tiene más madurez o ha trabajado previamente actividades de igualdad más básicas. En ambos casos, el juego promoverá la <strong>empatía, el pensamiento crítico y el compromiso personal</strong> con la construcción de una sociedad más justa y libre de violencias.</p>
+    <p>Se concibe, en definitiva, como una <strong>herramienta muy flexible</strong> que permite abordar la igualdad desde la historia, la emoción y la acción colectiva. Más que acertar fechas, se trata de <strong>descubrir historias, debatir y poner en contexto</strong> los logros y resistencias que han dado forma a nuestros derechos actuales.</p>
+
+    <h3>Edad recomendada</h3>
+    <p>A partir de <strong>13-14 años</strong>. Algunos contenidos (violencia machista, derechos reproductivos) requieren un contexto adecuado y acompañamiento. Para grupos más jóvenes se recomienda usar solo las categorías de Mujeres pioneras, Deporte e igualdad y Cultura y representación.</p>
+
+    <h3>Duración</h3>
+    <div class="modes">
+      <div class="mode-card">
+        <div class="mc-name">Exprés</div>
+        <div class="mc-cards">16</div>
+        <div class="mc-time">cartas · ~20 min</div>
+      </div>
+      <div class="mode-card">
+        <div class="mc-name">Media</div>
+        <div class="mc-cards">40</div>
+        <div class="mc-time">cartas · ~40 min</div>
+      </div>
+      <div class="mode-card">
+        <div class="mc-name">Extendida</div>
+        <div class="mc-cards">80</div>
+        <div class="mc-time">cartas · ~60 min</div>
+      </div>
+    </div>
+    <p style="margin-top:0.75rem;">Estas duraciones corresponden al juego en sí. Añade entre 15 y 30 minutos para la introducción y el debate posterior.</p>
+  </div>
+
+  <!-- CATEGORÍAS -->
+  <div class="section">
+    <div class="section-label">Contenido</div>
+    <h2>Las 8 categorías temáticas</h2>
+    <p>El juego incluye <strong>79 cartas</strong> distribuidas en 8 categorías. Puedes seleccionar con cuáles quieres jugar al inicio de cada partida, adaptando el contenido al grupo y al contexto.</p>
+    <div class="cat-grid">
+      <div class="cat-item c1"><h4>Mujeres pioneras</h4><p>Referentes que abrieron camino en ciencia, arte, política y activismo.</p></div>
+      <div class="cat-item c2"><h4>Avances legislativos</h4><p>Leyes y medidas que garantizan derechos e igualdad de trato.</p></div>
+      <div class="cat-item c3"><h4>Movimientos sociales</h4><p>Acciones colectivas que impulsaron cambios o denunciaron desigualdades.</p></div>
+      <div class="cat-item c4"><h4>Cuerpos y salud</h4><p>Derechos sexuales y reproductivos, salud menstrual y autonomía corporal.</p></div>
+      <div class="cat-item c5"><h4>Violencia machista y resistencias</h4><p>Hechos que visibilizan o combaten la violencia de género.</p></div>
+      <div class="cat-item c6"><h4>Cultura y representación</h4><p>Obras y figuras culturales que transforman imaginarios de género.</p></div>
+      <div class="cat-item c7"><h4>Deporte e igualdad</h4><p>Logros deportivos que rompieron barreras y abrieron camino.</p></div>
+      <div class="cat-item c8"><h4>Ciencia y tecnología con enfoque de género</h4><p>Científicas e innovaciones con enfoque de género.</p></div>
+    </div>
+
+  </div>
+
+  <!-- MODOS -->
+  <div class="section">
+    <div class="section-label">Cómo funciona</div>
+    <h2>Dos experiencias distintas</h2>
+
+    <h3>Explorar</h3>
+    <p>Permite ver todas las cartas, filtrarlas por categoría y pulsar sobre cada una para descubrir la fecha y leer la descripción del hito. Es ideal para usar como <strong>recurso de consulta</strong> antes del juego, como apoyo al debate posterior o como herramienta de investigación individual.</p>
+
+    <h3>Jugar</h3>
+    <p>El juego coloca una primera carta en la línea del tiempo. Con cada turno aparece una nueva carta con la fecha oculta que hay que arrastrar al hueco correcto. Si aciertas, la carta se incorpora a la línea, que crece progresivamente. Si fallas, la carta se descarta.</p>
+    <p>Al iniciar una partida se elige la duración (Exprés / Media / Extendida), las categorías y si se activa el <strong>modo contrarreloj</strong> (10 segundos por carta), que añade tensión y es recomendable solo con grupos que ya conocen el juego.</p>
+
+    <div class="callout callout-tip">
+      <p><strong>Para uso grupal:</strong> proyecta la pantalla y juega colectivamente. Una persona controla el ratón o la pantalla táctil mientras el grupo debate dónde colocar cada carta antes de confirmar. Esta dinámica suele generar conversaciones muy ricas.</p>
+    </div>
+  </div>
+
+
+  <!-- METODOLOGÍA -->
+  <div class="section">
+    <div class="section-label">Orientaciones metodológicas</div>
+    <h2>Cómo trabajar con el juego</h2>
+    <p>Antes o Después se enmarca dentro de una metodología <strong>activa, participativa y cooperativa</strong>, que promueve el aprendizaje a través del juego y la reflexión compartida. Su planteamiento permite trabajar desde un enfoque <strong>lúdico y significativo</strong>, combinando la adquisición de conocimientos con el desarrollo de habilidades sociales y valores de igualdad.</p>
+
+    <h3>Rol de quien dinamiza</h3>
+    <ul>
+      <li>Actúa como <strong>guía y facilitador/a</strong> del juego, creando un clima de respeto, diálogo y curiosidad.</li>
+      <li>Presenta brevemente el contexto y explica las reglas, pero deja espacio a la <strong>exploración autónoma y al descubrimiento colectivo</strong>.</li>
+      <li>Modula la selección de categorías según la edad y el nivel del grupo, eligiendo hitos más complejos o actuales si el grupo está preparado.</li>
+      <li>Promueve la <strong>reflexión crítica posterior al juego</strong>, ayudando a conectar los hechos históricos con la realidad presente.</li>
+    </ul>
+
+    <h3>Rol del grupo</h3>
+    <ul>
+      <li>Asume un papel <strong>activo y protagonista</strong>, construyendo el conocimiento a través del razonamiento, el debate y la toma de decisiones.</li>
+      <li>Aprende mediante la <strong>cooperación y la discusión argumentada</strong>, contrastando puntos de vista y defendiendo sus elecciones de manera razonada.</li>
+      <li>Participa en la <strong>evaluación y autoevaluación</strong>, reflexionando sobre lo aprendido y sobre el propio proceso de juego.</li>
+    </ul>
+
+    <h3>Estrategias metodológicas recomendadas</h3>
+    <ul>
+      <li><strong>Aprendizaje cooperativo:</strong> trabajo en grupo que comparte decisiones y construye conjuntamente la línea temporal.</li>
+      <li><strong>Aprendizaje por descubrimiento:</strong> el grupo deduce la secuencia de los acontecimientos a partir de su conocimiento, intuición y debate.</li>
+      <li><strong>Metodología inductiva:</strong> a partir de casos concretos (cartas), se reflexiona sobre conceptos más amplios (igualdad, derechos, participación…).</li>
+      <li><strong>Gamificación de la reflexión:</strong> tras el juego, se puede invitar a realizar actividades complementarias como diseñar nuevas cartas, crear murales o elaborar una línea del tiempo de la igualdad en el entorno propio.</li>
+    </ul>
+  </div>
+
+  <!-- DESARROLLO -->
+  <div class="section">
+    <div class="section-label">Desarrollo de la sesión</div>
+    <h2>Cómo estructurar una sesión</h2>
+    <p>Te proponemos una estructura en cuatro fases adaptable a cualquier duración y contexto.</p>
+
+    <div class="phases">
+
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-num">1</div>
+          <div class="phase-title">Introducción y activación de conocimientos previos</div>
+          <div class="phase-time">10–15 min</div>
+        </div>
+        <div class="phase-body">
+          <p>Antes de lanzar el juego, activa la reflexión del grupo con una pregunta abierta:</p>
+          <ul>
+            <li>«¿Creéis que hoy existe igualdad entre mujeres y hombres?»</li>
+            <li>«¿Qué hechos os suenan como importantes en la historia de los derechos de las mujeres?»</li>
+            <li>«¿En qué año creéis que las mujeres pudieron votar por primera vez en España?»</li>
+          </ul>
+          <p>Una narrativa introductoria puede ayudar a contextualizar y dar vida a la sesión. Las que encontrarás a lo largo de esta guía son solo ejemplos — quien dinamice puede adaptarlas, modificarlas o inventar las suyas propias según el grupo y el momento.</p>
+          <div class="narrative">
+            <p>«Estamos en el año 2125. Los archivos digitales del planeta han sufrido un fallo catastrófico: se han borrado los registros sobre cómo se conquistó la igualdad. Sin esos datos, la historia está condenada a no poder aprender de sus errores. Vosotras y vosotros formáis parte del equipo de reconstrucción temporal. Solo si lográis recomponer la secuencia exacta de los hechos, el archivo se restaurará y el futuro podrá aprender del pasado. El tiempo está en vuestras manos.»</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-num">2</div>
+          <div class="phase-title">Configuración y juego</div>
+          <div class="phase-time">20–50 min</div>
+        </div>
+        <div class="phase-body">
+          <p>Configura la partida según el tiempo disponible y las características del grupo:</p>
+          <ul>
+            <li>Elige la <strong>duración</strong> (Exprés para sesiones cortas, Media o Extendida para sesiones completas)</li>
+            <li>Selecciona las <strong>categorías</strong> más adecuadas al contexto</li>
+            <li>Decide si activar el <strong>modo contrarreloj</strong> (no recomendado en la primera sesión)</li>
+          </ul>
+          <p>Durante el juego, fomenta el debate antes de cada colocación: «¿Qué os parece? ¿Fue antes o después de…?» No hay que apresurarse — el valor pedagógico está en la discusión, no en el resultado.</p>
+          <p>A mitad de la sesión, si el grupo lo necesita, puedes lanzar esta «interferencia del archivo»:</p>
+          <div class="narrative">
+            <p>«El archivo está recuperando emociones asociadas a los hitos: la alegría, la rabia, la esperanza. Tomad una carta, leedla en voz alta, e imaginad cómo se sentiría vivir ese momento. ¿Qué emoción se activa ahora en vosotros?»</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-num">3</div>
+          <div class="phase-title">Reflexión y debate final</div>
+          <div class="phase-time">15–20 min</div>
+        </div>
+        <div class="phase-body">
+          <p>Una vez terminado el juego, guía la reflexión colectiva con preguntas como:</p>
+          <ul>
+            <li>«¿Qué hitos os han sorprendido más?»</li>
+            <li>«¿Dónde hubo retrocesos o silencios en la historia?»</li>
+            <li>«¿Qué hechos consideráis más significativos para vuestra generación?»</li>
+            <li>«¿Qué falta todavía por conseguir?»</li>
+            <li>«¿Vuestra abuela podía tener una cuenta en el banco? ¿Y conducir sola?»</li>
+          </ul>
+          <p>El objetivo es conectar el pasado con el presente y promover una mirada crítica sobre la igualdad actual.</p>
+          <div class="narrative">
+            <p>«Transmisión final desde el Archivo de la Igualdad Universal. Los fragmentos dispersos han sido restaurados. Pero la reconstrucción no está completa: el archivo está vivo y necesita nuevas entradas. Vosotras y vosotros sois ahora sus guardianes temporales. La historia de la igualdad no termina aquí… continúa antes o después, en cada decisión que tomemos.»</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-header">
+          <div class="phase-num">4</div>
+          <div class="phase-title">Actividades de ampliación (opcional)</div>
+          <div class="phase-time">15–30 min</div>
+        </div>
+        <div class="phase-body">
+          <p>Para sesiones más largas o como continuación en otra sesión:</p>
+          <ul>
+            <li>Elaborar un mural «Antes / Después / Aún por conseguir», incorporando post-its con los avances que más les han sorprendido o los retos que creen que quedan pendientes</li>
+            <li>Investigar y crear nuevas cartas con hitos locales o recientes. Si el grupo crea cartas que consideren valiosas, pueden contribuir al juego enviando el texto a <a href="mailto:paula@antesodespues.app" style="color:var(--text);">paula@antesodespues.app</a> — las revisaré con mucho gusto y, si encajan con el espíritu del juego, las añadiré con los créditos correspondientes.</li>
+            <li>Relacionar los hitos del juego con noticias o campañas actuales</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONSEJOS -->
+  <div class="section">
+    <div class="section-label">Consejos prácticos</div>
+    <h2>Para que la sesión funcione bien</h2>
+    <div class="tips">
+      <div class="tip"><div class="tip-icon">·</div><p><strong>Proyección:</strong> el juego funciona mejor en pantalla grande. Asegúrate de que todas las personas del grupo puedan ver bien las cartas de la línea del tiempo antes de decidir.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>En móvil:</strong> si se usa en dispositivos individuales, recomendamos la orientación horizontal para el modo de juego. El modo explorar funciona bien en vertical.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>Selección de categorías:</strong> para grupos mixtos o sin formación previa, empieza con 3-4 categorías en lugar de todas. Añade más en sesiones sucesivas.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>Contrarreloj:</strong> actívalo solo con grupos que ya conocen el juego. En primera sesión, la presión del tiempo puede cortar el debate antes de que empiece.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>El error es pedagógico:</strong> cuando una carta se descarta por error, es el mejor momento para preguntar «¿por qué creíais que era antes?». Los fallos generan más conversación que los aciertos.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>Modo explorar:</strong> úsalo al final de la sesión para que el grupo pueda revisar las cartas que les han llamado la atención y leer los textos completos.</p></div>
+      <div class="tip"><div class="tip-icon">·</div><p><strong>Contenidos sensibles:</strong> algunas cartas de las categorías Violencia machista y Cuerpos y salud pueden generar reacciones intensas. Crea un espacio seguro antes de comenzar y valida las emociones que puedan surgir.</p></div>
+    </div>
+  </div>
+
+  <!-- OBJETIVOS -->
+  <div class="section">
+    <div class="section-label">Objetivos pedagógicos</div>
+    <h2>Qué trabaja este juego</h2>
+    <p>Como objetivo general, el juego busca promover la comprensión del proceso histórico hacia la igualdad entre mujeres y hombres, fomentando la participación activa, la reflexión crítica y la valoración del papel de las mujeres en la sociedad, la cultura y la ciencia.</p>
+    <h3>Objetivos específicos</h3>
+    <ul>
+      <li>Conocer los principales hitos, figuras y movimientos que han contribuido al avance de los derechos de las mujeres.</li>
+      <li>Comprender la evolución temporal de la igualdad de género en un marco cronológico y contextual.</li>
+      <li>Valorar la importancia de la memoria histórica y la construcción colectiva de los derechos.</li>
+      <li>Reconocer los logros alcanzados y reflexionar sobre los retos aún pendientes.</li>
+      <li>Desarrollar el pensamiento crítico y el debate argumentado.</li>
+      <li>Fomentar la empatía, el respeto y la cooperación en dinámicas de juego inclusivas.</li>
+      <li>Identificar estereotipos y prejuicios de género, aprendiendo a cuestionarlos.</li>
+      <li>Fortalecer la competencia social y cívica reconociendo la igualdad como principio básico de los derechos humanos.</li>
+    </ul>
+
+    <div class="callout callout-warn" style="margin-top:1.25rem;">
+      <p><strong>ODS relacionados:</strong> este juego contribuye a los Objetivos de Desarrollo Sostenible <strong>4</strong> (Educación de calidad), <strong>5</strong> (Igualdad de género), <strong>10</strong> (Reducción de las desigualdades) y <strong>16</strong> (Paz, justicia e instituciones sólidas).</p>
+    </div>
+  </div>
+
+  <!-- LICENCIA -->
+  <div class="section">
+    <div class="section-label">Uso y licencia</div>
+    <h2>Cómo puedes usar este material</h2>
+    <p>Antes o Después está publicado bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" style="color:var(--text);">CC BY-NC-SA 4.0</a>. Puedes usarlo libremente en contextos educativos no comerciales, siempre que cites la fuente.</p>
+    <p>Si lo usas en una dinámica, nos encantaría saberlo — escríbeme a <a href="mailto:paula@antesodespues.app" style="color:var(--text);">paula@antesodespues.app</a>. Tu feedback ayuda a mejorar el juego.</p>
+    <p>Inspirado en <em>Timeline</em> de <a href="https://www.asmodee.es/" target="_blank" style="color:var(--text);">Asmodee</a>. © 2026 Antes o Después.</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 <strong>Antes o Después</strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> · <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>
+</footer>
+
+</body>
+</html>
