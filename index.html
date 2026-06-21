@@ -27,7 +27,7 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 .stat-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.1rem; font-weight:800; color:var(--stat-val); line-height:1; }
 .stat-lbl { font-size:0.62rem; color:var(--stat-lbl); text-transform:uppercase; letter-spacing:0.07em; margin-top:2px; }
 .stat-sep { width:1px; height:28px; background:rgba(0,0,0,0.08); flex-shrink:0; }
-#stats-btn { margin-left:0.75rem; background:none; border:1px solid rgba(0,0,0,0.1); border-radius:8px; padding:0.25rem 0.5rem; font-size:1rem; cursor:pointer; transition:all 0.15s; }
+#stats-btn { margin-left:0.75rem; background:none; border:1px solid var(--border2); border-radius:8px; padding:0.35rem 0.6rem; cursor:pointer; transition:all 0.15s; color:var(--text2); display:flex; align-items:center; }
 #stats-btn:hover { background:rgba(0,0,0,0.05); }
 
 #filters { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; padding:1.2rem 1rem 0.5rem; }
@@ -148,9 +148,9 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 @media (max-width:768px) {
   #card-grid {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 8px !important;
-    padding: 0.5rem 0.6rem 4rem !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    padding: 0.5rem 0.5rem 4rem !important;
     flex-wrap: unset !important;
   }
   .card-wrap {
@@ -418,22 +418,23 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 /* ── COOKIE BANNER ── */
 #cookie-banner {
   position: fixed;
-  bottom: 1.25rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
   background: #1a1a2e;
   color: rgba(255,255,255,0.85);
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1rem;
   border-radius: 12px;
   font-size: 0.78rem;
   font-family: 'DM Sans', sans-serif;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   box-shadow: 0 8px 30px rgba(0,0,0,0.2);
   z-index: 9999;
-  max-width: 90vw;
-  line-height: 1.5;
+  line-height: 1.4;
+  transform: none;
+  max-width: none;
 }
 #cookie-banner a { color: rgba(255,255,255,0.6); text-underline-offset: 2px; }
 #cookie-banner button {
@@ -455,9 +456,9 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 
 /* ── HAMBURGER MENU ── */
 #menu-btn {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
+  position: fixed;
+  top: 0.5rem;
+  right: 0.75rem;
   background: none;
   border: 1.5px solid var(--border2);
   border-radius: 8px;
@@ -545,6 +546,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
   /* BACK: solo descripción, sin título ni fecha */
   .card-back .card-title { display:none !important; }
   .card-back .card-date-strip { display:none !important; }
+  .card-wrap.revealed .card-back .card-date-strip { display:flex !important; }
   .card-back .card-back-hint { display:none !important; }
   .card-back .card-bg { justify-content:center !important; padding:10px !important; }
   .card-back .card-desc { font-size:10px !important; line-height:1.55 !important; flex:none !important; }
@@ -553,7 +555,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 
 @media (max-width:768px) {
   .header-subtitle-1, .header-subtitle-2 { display:none !important; }
-  header { padding:1.5rem 1rem 0.75rem !important; }
+  header { padding:2rem 1rem 0.75rem !important; }
 }
 
 
@@ -583,6 +585,22 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 }
 
 @media (max-width:768px) { .mobile-hide-stat { display:none !important; } }
+@media (max-width:768px) { .beta-badge { display:none !important; } }
+
+@media (max-width:768px) {
+  /* En móvil: ocultar reverso por defecto, mostrar solo al flip */
+  .card-wrap { perspective: none !important; -webkit-perspective: none !important; }
+  .card-inner { transform-style: flat !important; -webkit-transform-style: flat !important; transition: none !important; transform: none !important; -webkit-transform: none !important; }
+  .card-wrap.flipped .card-inner { transform: none !important; -webkit-transform: none !important; }
+  .card-front { position: absolute; inset: 0; opacity: 1; transition: opacity 0.25s; z-index: 2; backface-visibility: visible !important; -webkit-backface-visibility: visible !important; transform: none !important; }
+  .card-back { position: absolute; inset: 0; opacity: 0; transition: opacity 0.25s; z-index: 1; backface-visibility: visible !important; -webkit-backface-visibility: visible !important; transform: none !important; -webkit-transform: none !important; }
+  .card-wrap.flipped .card-front { opacity: 0; z-index: 1; }
+  .card-wrap.flipped .card-back { opacity: 1; z-index: 2; }
+  /* El año en el anverso siempre borroso hasta revealed */
+  .card-front .card-date-strip .year { filter: blur(7px); }
+  .card-wrap.revealed .card-front .card-date-strip .year { filter: blur(0); }
+}
+
 </style>
 </head>
 <body>
@@ -594,7 +612,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
       <text x="38" y="82" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="64" font-weight="800" fill="var(--text)" text-anchor="middle">?</text>
       <line x1="8" y1="96" x2="68" y2="96" stroke="var(--text)" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <h1>Antes o Después <span style="font-size:clamp(0.5rem,1.5vw,0.7rem);font-weight:700;letter-spacing:0.12em;background:var(--active-btn-bg);color:var(--active-btn-text);border:1.5px solid var(--active-btn-bg);border-radius:999px;padding:3px 10px;vertical-align:middle;font-family:'DM Sans',sans-serif;text-transform:uppercase;">Beta</span></h1>
+    <h1>Antes o Después <span class="beta-badge" style="font-size:clamp(0.5rem,1.5vw,0.7rem);font-weight:700;letter-spacing:0.12em;background:var(--active-btn-bg);color:var(--active-btn-text);border:1.5px solid var(--active-btn-bg);border-radius:999px;padding:3px 10px;vertical-align:middle;font-family:'DM Sans',sans-serif;text-transform:uppercase;">Beta</span></h1>
   </div>
   <p class="header-subtitle-1">La igualdad de género será real antes o después. Tú decides.</p>
   <p class="header-subtitle-2" style="font-size:1.05rem;font-weight:600;color:var(--text);margin-top:0.7rem;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6;">Descubre y ordena, carta a carta, la conquista de la igualdad.</p>
@@ -626,7 +644,11 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
   <div class="stat-item mobile-hide-stat"><div class="stat-val" id="cnt-rounds">0</div><div class="stat-lbl">Jugadas</div></div>
   <div class="stat-sep mobile-hide-stat"></div>
   <div class="stat-item mobile-hide-stat"><div class="stat-val" id="cnt-explored">0</div><div class="stat-lbl">Exploradas</div></div>
-  <button id="stats-btn" onclick="openStats()" title="Ver estadísticas completas de la sesión" style="display:none">📊</button>
+  <button id="stats-btn" onclick="openStats()" title="Ver estadísticas completas de la sesión" style="display:none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/>
+    </svg>
+  </button>
 </div>
 
 <div id="mode-bar">
@@ -907,7 +929,14 @@ function closeDetail(){
 function goToStepTimer(){
   if(chosenCats.size===0) return;
   $('step-cats').style.display='none';
-  $('step-timer').style.display='block';
+  if(window.innerWidth <= 768) {
+    timerMode = false;
+    $('step-size').style.display='block';
+    $('mode-selector').classList.remove('active');
+    startGameWithSize(chosenSize);
+  } else {
+    $('step-timer').style.display='block';
+  }
 }
 
 function goBackToCats(){
