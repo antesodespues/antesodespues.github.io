@@ -372,7 +372,7 @@ footer a { color: var(--text3); }
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 // Inicializar EmailJS — sustituye TU_PUBLIC_KEY por tu clave real
-// emailjs.init("TU_PUBLIC_KEY");
+emailjs.init("LY7__1nEzG1_8rsm4");
 
 document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
@@ -380,8 +380,8 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
-  // Sustituye TU_SERVICE_ID y TU_TEMPLATE_ID por tus valores reales
-  emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', this)
+  // Sustituye service_gpyx32h y template_sfs9mjl por tus valores reales
+  emailjs.sendForm('service_gpyx32h', 'template_sfs9mjl', this)
     .then(() => {
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
