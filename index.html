@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YDRJBBEN1P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YDRJBBEN1P');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antes o Después · Igualdad de Género</title>
@@ -408,6 +416,44 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
   .drop-zone { width:22px; height:124px; font-size:11px; }
   .drop-zone.drag-over { width:44px; }
 }
+
+
+/* ── COOKIE BANNER ── */
+#cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: rgba(255,255,255,0.85);
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  z-index: 9999;
+  max-width: 90vw;
+  line-height: 1.5;
+}
+#cookie-banner a { color: rgba(255,255,255,0.6); text-underline-offset: 2px; }
+#cookie-banner button {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+#cookie-banner button:hover { background: rgba(255,255,255,0.2); }
 
 </style>
 </head>
@@ -1244,5 +1290,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
 </div>
 <canvas id="confetti-canvas"></canvas>
 <div id="portrait-hint">↩ Gira el móvil para una mejor experiencia</div>
+
+<div id="cookie-banner">
+  <span>Esta web usa cookies de Google Analytics para medir visitas de forma anónima. <a href="faq.html#privacidad">Más info</a></span>
+  <button onclick="document.getElementById('cookie-banner').style.display='none';localStorage.setItem('cookieOk','1')">Entendido</button>
+</div>
+<script>
+  if(localStorage.getItem('cookieOk')) document.getElementById('cookie-banner').style.display='none';
+</script>
+
 </body>
 </html>
