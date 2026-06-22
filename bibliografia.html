@@ -17,11 +17,15 @@
 :root {
   --bg: #ffffff; --text: #1a1a2e; --text2: rgba(0,0,0,0.5);
   --text3: rgba(0,0,0,0.3); --border: rgba(0,0,0,0.07); --border2: rgba(0,0,0,0.12);
+  --active-btn-bg: #1a1a2e;
+  --active-btn-text: #ffffff;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #111118; --text: #f0f0f0; --text2: rgba(255,255,255,0.5);
     --text3: rgba(255,255,255,0.3); --border: rgba(255,255,255,0.08); --border2: rgba(255,255,255,0.15);
+    --active-btn-bg: #f0f0f0;
+    --active-btn-text: #1a1a2e;
   }
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
@@ -60,8 +64,8 @@ footer a { color:var(--text3); }
 </header>
 
 <main>
-  <h2 class="page-title">Bibliografía</h2>
-  <p class="page-desc">Fuentes, recursos y referencias utilizadas para documentar los hitos del juego. Esta página está en construcción — se irá completando próximamente.</p>
+  <h2 class="page-title">Bibliografía <span style="font-size:clamp(0.5rem,1.5vw,0.7rem);font-weight:700;letter-spacing:0.12em;background:var(--active-btn-bg);color:var(--active-btn-text);border:1.5px solid var(--active-btn-bg);border-radius:999px;padding:3px 10px;vertical-align:middle;font-family:'DM Sans',sans-serif;text-transform:uppercase;">Pendiente</span></h2>
+  <p class="page-desc">Fuentes, recursos y referencias utilizadas para documentar los hitos del juego. Esta página está en construcción, se irá completando próximamente.</p>
 
   <div class="section">
     <div class="section-label">Legislación y documentos oficiales</div>
@@ -142,7 +146,7 @@ footer a { color:var(--text3); }
 </main>
 
 <footer>
-  © 2026 <strong>Antes o Después</strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> · <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>
+  © 2026 <strong>Antes o Después</strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
 </footer>
 
 </body>
