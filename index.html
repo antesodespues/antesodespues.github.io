@@ -560,7 +560,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 }
 
 
-/* FILTER TOGGLE — mobile only */
+/* FILTER TOGGLE, mobile only */
 #filter-toggle { display:none; }
 @media (max-width:768px) {
   #filter-toggle {
@@ -613,6 +613,19 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
   #hand-area { margin-bottom:0.5rem !important; margin-top:0 !important; }
 }
 
+
+
+/* ── TAP-TO-PLACE (mobile) ── */
+.mini-card.tap-selected {
+  box-shadow: 0 0 0 3px #f9ca24, 0 8px 24px rgba(0,0,0,0.3) !important;
+  transform: scale(1.06) !important;
+  z-index: 10;
+}
+.drop-zone.tap-ready {
+  background: rgba(249,202,36,0.25) !important;
+  border-color: #f9ca24 !important;
+}
+
 </style>
 </head>
 <body>
@@ -646,7 +659,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 <div id="scorebar" style="display:none">
   <div class="stat-item"><div class="stat-val" id="cnt-correct">0</div><div class="stat-lbl">Aciertos</div></div>
   <div class="stat-sep"></div>
-  <div class="stat-item mobile-hide-stat"><div class="stat-val" id="cnt-pct">—</div><div class="stat-lbl">% acierto</div></div>
+  <div class="stat-item mobile-hide-stat"><div class="stat-val" id="cnt-pct">,</div><div class="stat-lbl">% acierto</div></div>
   <div class="stat-sep mobile-hide-stat"></div>
   <div class="stat-item"><div class="stat-val" id="cnt-streak">0</div><div class="stat-lbl">Racha</div></div>
   <div class="stat-sep mobile-hide-stat"></div>
@@ -684,7 +697,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 
 <div id="game-zone">
   <div class="game-instructions" id="game-instructions">
-    <strong>¿Cómo jugar?</strong> Arrastra la carta dorada al hueco correcto de la línea del tiempo. Si aciertas, se queda y la línea crece. Si fallas, se descarta. ¡Intenta colocar todas las cartas!
+    <strong>¿Cómo jugar?</strong> <span id="how-to-play-text">Arrastra la carta dorada al hueco correcto de la línea del tiempo. Si aciertas, se queda y la línea crece. Si fallas, se descarta. ¡Intenta colocar todas las cartas!</span>
   </div>
   <div id="deck-counter"></div>
   <div id="countdown-bar-wrap"><div id="countdown-bar"></div></div>
@@ -743,11 +756,11 @@ const CARDS = [
   {id:12, cat:2, year:1981, title:"Ley del divorcio en España",                 desc:"El Congreso aprueba el divorcio legal, reconociendo el derecho a romper un vínculo insostenible sin depender de la Iglesia."},
   {id:13, cat:2, year:1985, title:"Despenalización parcial del aborto",         desc:"Por primera vez desde 1936, el aborto deja de ser delito en España en tres supuestos. Paso decisivo en la autonomía de las mujeres."},
   {id:14, cat:2, year:1999, title:"Suecia: ley integral contra la violencia",   desc:"Pionera en reconocer la violencia de género como violación de derechos humanos. Sirvió de modelo a España y otros países europeos."},
-  {id:15, cat:2, year:2004, title:"Ley Integral contra la Violencia de Género", desc:"La LO 1/2004 crea juzgados específicos y medidas de protección. Un hito mundial: respuesta integral —jurídica, educativa y social— al machismo."},
+  {id:15, cat:2, year:2004, title:"Ley Integral contra la Violencia de Género", desc:"La LO 1/2004 crea juzgados específicos y medidas de protección. Un hito mundial: respuesta integral ,jurídica, educativa y social, al machismo."},
   {id:16, cat:2, year:2005, title:"Matrimonio igualitario en España",           desc:"España se convierte en el tercer país del mundo en legalizar el matrimonio entre personas del mismo sexo."},
   {id:17, cat:2, year:2007, title:"Ley de Igualdad Efectiva",                   desc:"Establece cuotas de representación, permisos de paternidad y planes de igualdad en empresas. Primera norma que exige políticas activas."},
   {id:18, cat:2, year:2010, title:"Ley del aborto por plazos",                  desc:"El aborto se convierte en derecho sanitario hasta la semana 14. Las mujeres pueden decidir sin necesidad de justificar motivos."},
-  {id:19, cat:2, year:2018, title:"Convenio de Estambul en vigor en España",    desc:"Obliga a ampliar la definición de violencia de género —incluyendo la sexual, psicológica y económica— y a atender a colectivos vulnerables."},
+  {id:19, cat:2, year:2018, title:"Convenio de Estambul en vigor en España",    desc:"Obliga a ampliar la definición de violencia de género ,incluyendo la sexual, psicológica y económica, y a atender a colectivos vulnerables."},
   {id:20, cat:2, year:2022, title:"Ley del 'solo sí es sí'",                    desc:"Redefine el consentimiento sexual: sin 'sí' explícito, no hay consentimiento. Centra el foco en la víctima y su reparación."},
   {id:21, cat:3, year:1975, title:"Jornadas por la Liberación de la Mujer",     desc:"Primer gran encuentro del feminismo español tras la dictadura. Más de 400 mujeres debaten sobre sexualidad, trabajo y derechos bajo vigilancia policial."},
   {id:22, cat:3, year:1977, title:"Primera manifestación del Orgullo en España",desc:"Cientos de personas marchan por Las Ramblas exigiendo 'libertad sexual y amnistía'. La homosexualidad aún era delito."},
@@ -779,7 +792,7 @@ const CARDS = [
   {id:48, cat:5, year:2021, title:"Ley de protección integral a la infancia",   desc:"Pionera en proteger a menores frente a toda forma de violencia. Introduce obligación de denunciar y protocolos educativos."},
   {id:49, cat:5, year:2023, title:"Ampliación de ayudas a víctimas de violencia",desc:"Se incluye a mujeres mayores, migrantes y sin denuncia previa. La reparación incluye reinserción laboral y reconstrucción vital."},
   {id:50, cat:6, year:1921, title:"Helena Cortesina dirige 'Flor de España'",   desc:"Primera película española hecha por una mujer. Bailarina, actriz y productora, abrió camino en una industria dominada por hombres."},
-  {id:51, cat:6, year:1976, title:"'El segundo sexo' llega a España",           desc:"La obra de Simone de Beauvoir —'No se nace mujer, se llega a serlo'— sacude el pensamiento de la Transición española."},
+  {id:51, cat:6, year:1976, title:"'El segundo sexo' llega a España",           desc:"La obra de Simone de Beauvoir ,'No se nace mujer, se llega a serlo', sacude el pensamiento de la Transición española."},
   {id:52, cat:6, year:1991, title:"Se funda CIMA: mujeres en el cine español",  desc:"La Asociación de Mujeres Cineastas visibiliza la desigualdad y logra acuerdos con RTVE y ayudas para proyectos con liderazgo femenino."},
   {id:53, cat:6, year:2003, title:"Estreno de 'Te doy mis ojos'",               desc:"Referente cultural contra la violencia de género. Siete Goyas y uso en programas educativos. El arte puede transformar mentalidades."},
   {id:54, cat:6, year:2008, title:"'Persépolis' llega al cine internacional",   desc:"Marjane Satrapi adapta su novela gráfica sobre el Irán revolucionario. Símbolo de resistencia femenina y libertad de expresión."},
@@ -846,7 +859,7 @@ function updateScore(){
   $('cnt-correct').textContent  = correct;
   $('cnt-streak').textContent   = streak;
   $('cnt-best-streak').textContent = bestStreak;
-  const pct = roundsPlayed>0 ? Math.round((correct/roundsPlayed)*100)+'%' : '—';
+  const pct = roundsPlayed>0 ? Math.round((correct/roundsPlayed)*100)+'%' : ',';
   $('cnt-pct').textContent = pct;
 }
 function $(id){ return document.getElementById(id); }
@@ -989,7 +1002,7 @@ function startCountdown(){
     if(remaining <= 1.5) bar.classList.add('warning');
     if(remaining <= 0){
       clearInterval(timerInterval);
-      // Time's up — auto-discard
+      // Time's up, auto-discard
       autoDiscard();
     }
   }, 100);
@@ -1012,7 +1025,7 @@ function autoDiscard(){
   statsCat[newCard.cat].total++;
   statsDecade[decade].total++;
   const msg=$('result-msg');
-  msg.textContent='⏱️ ¡Tiempo! La carta era de '+newCard.year+' — descartada.';
+  msg.textContent='⏱️ ¡Tiempo! La carta era de '+newCard.year+', descartada.';
   msg.className='wrong';
   triggerShake();
   floatEmoji('⏱️');
@@ -1183,6 +1196,15 @@ function makeDropZone(pos){
   dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
   dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
   dz.addEventListener('drop',e=>{e.preventDefault();selectPos(pos);});
+  dz.addEventListener('touchend',e=>{
+    e.preventDefault();
+    const selected=document.querySelector('.mini-card.tap-selected');
+    if(selected && window.innerWidth <= 768){
+      selected.classList.remove('tap-selected');
+      document.querySelectorAll('.drop-zone').forEach(d=>d.classList.remove('tap-ready'));
+      selectPos(pos);
+    }
+  },{passive:false});
   return dz;
 }
 
@@ -1201,24 +1223,39 @@ function renderHand(){
   mc.setAttribute('draggable','true');
   mc.addEventListener('dragstart',e=>{mc.classList.add('dragging');e.dataTransfer.effectAllowed='move';});
   mc.addEventListener('dragend',()=>mc.classList.remove('dragging'));
-  mc.addEventListener('touchstart',e=>{e.preventDefault();mc.classList.add('dragging');},{passive:false});
-  mc.addEventListener('touchmove',e=>{
-    e.preventDefault();
-    const t=e.touches[0];
-    const el=document.elementFromPoint(t.clientX,t.clientY);
-    document.querySelectorAll('.drop-zone').forEach(dz=>dz.classList.remove('drag-over'));
-    const dz=el&&el.closest('.drop-zone');
-    if(dz) dz.classList.add('drag-over');
-  },{passive:false});
-  mc.addEventListener('touchend',e=>{
-    e.preventDefault();
-    mc.classList.remove('dragging');
-    const t=e.changedTouches[0];
-    const el=document.elementFromPoint(t.clientX,t.clientY);
-    const dz=el&&el.closest('.drop-zone');
-    if(dz) selectPos(parseInt(dz.dataset.pos));
-    document.querySelectorAll('.drop-zone').forEach(d=>d.classList.remove('drag-over'));
-  },{passive:false});
+  if(window.innerWidth <= 768) {
+    // TAP-TO-PLACE system for mobile
+    mc.addEventListener('touchend', e=>{
+      e.preventDefault();
+      const isSelected = mc.classList.contains('tap-selected');
+      if(isSelected) {
+        mc.classList.remove('tap-selected');
+        document.querySelectorAll('.drop-zone').forEach(dz=>dz.classList.remove('tap-ready'));
+      } else {
+        mc.classList.add('tap-selected');
+        document.querySelectorAll('.drop-zone').forEach(dz=>dz.classList.add('tap-ready'));
+      }
+    }, {passive:false});
+  } else {
+    mc.addEventListener('touchstart',e=>{e.preventDefault();mc.classList.add('dragging');},{passive:false});
+    mc.addEventListener('touchmove',e=>{
+      e.preventDefault();
+      const t=e.touches[0];
+      const el=document.elementFromPoint(t.clientX,t.clientY);
+      document.querySelectorAll('.drop-zone').forEach(dz=>dz.classList.remove('drag-over'));
+      const dz=el&&el.closest('.drop-zone');
+      if(dz) dz.classList.add('drag-over');
+    },{passive:false});
+    mc.addEventListener('touchend',e=>{
+      e.preventDefault();
+      mc.classList.remove('dragging');
+      const t=e.changedTouches[0];
+      const el=document.elementFromPoint(t.clientX,t.clientY);
+      const dz=el&&el.closest('.drop-zone');
+      if(dz) selectPos(parseInt(dz.dataset.pos));
+      document.querySelectorAll('.drop-zone').forEach(d=>d.classList.remove('drag-over'));
+    },{passive:false});
+  }
   area.appendChild(mc);
 }
 
@@ -1252,7 +1289,7 @@ function checkOrder(){
     if(streak>=3) floatEmoji(['🔥','⭐','💫','🎯'][Math.floor(Math.random()*4)]);
   } else {
     streak=0;
-    msg.textContent='❌ Era de '+newCard.year+' — descartada.';
+    msg.textContent='❌ Era de '+newCard.year+', descartada.';
     msg.className='wrong';
     triggerShake();
     floatEmoji(['😬','💥','❌'][Math.floor(Math.random()*3)]);
@@ -1267,7 +1304,7 @@ function checkOrder(){
 }
 
 function openStats(){
-  const pct = roundsPlayed>0 ? Math.round((correct/roundsPlayed)*100)+'%' : '—';
+  const pct = roundsPlayed>0 ? Math.round((correct/roundsPlayed)*100)+'%' : ',';
   $('st-correct').textContent = correct;
   $('st-pct').textContent     = pct;
   $('st-streak').textContent  = streak;
@@ -1425,6 +1462,15 @@ function closeMenu(){
   document.getElementById('nav-overlay').classList.remove('active');
 }
 
+
+/* ── HOW TO PLAY TEXT ── */
+(function(){
+  const el = document.getElementById('how-to-play-text');
+  if(el && window.innerWidth <= 768){
+    el.textContent = 'Toca la carta dorada para seleccionarla y luego toca el hueco donde quieres colocarla. Si aciertas, se queda y la línea crece. Si fallas, se descarta.';
+  }
+})();
+
 /* INIT */
 document.addEventListener('DOMContentLoaded', ()=>{
   $('card-detail').addEventListener('click', e=>{ if(e.target===$('card-detail')) closeDetail(); });
@@ -1507,7 +1553,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     <h2>Estadísticas de sesión <button onclick="closeStats()">✕</button></h2>
     <div class="stats-grid">
       <div class="stats-card"><div class="sv" id="st-correct">0</div><div class="sl">Aciertos totales</div></div>
-      <div class="stats-card"><div class="sv" id="st-pct">—</div><div class="sl">% de acierto</div></div>
+      <div class="stats-card"><div class="sv" id="st-pct">,</div><div class="sl">% de acierto</div></div>
       <div class="stats-card"><div class="sv" id="st-streak">0</div><div class="sl">Racha actual</div></div>
       <div class="stats-card"><div class="sv" id="st-best">0</div><div class="sl">Mejor racha</div></div>
     </div>
