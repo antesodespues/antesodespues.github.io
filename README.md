@@ -16,12 +16,12 @@ The game has two modes:
 
 ### Game features
 - 79 cards across 8 thematic categories
-- 3 game lengths: Exprés (16 cards), Media (40 cards), Extendida (up to 80 cards)
+- 3 game lengths: Exprés (16 cards), Media (40 cards), Extendida (up to 80 cards) — desktop only; mobile is Exprés only
 - Category selection for each game
-- Optional countdown timer (10 seconds per card)
+- Optional countdown timer (10 seconds per card) — desktop only
 - Session statistics: streak, accuracy, breakdown by category and decade
 - Light/dark mode
-- Mobile-friendly
+- Fully playable on mobile (portrait mode)
 
 ### Categories
 1. Mujeres pioneras (Pioneering women)
@@ -75,6 +75,36 @@ open index.html
 This project was born as a university assignment and grew into something bigger. The goal is simple: make the history of gender equality more accessible, memorable and fun — especially for educational settings.
 
 It's a non-profit, ad-free project made with care. If you use it in your classroom or workshop, I'd love to hear about it.
+
+---
+
+## Mobile experience
+
+The game is fully playable on mobile (portrait mode). The mobile version has been specifically optimized and differs from desktop in several ways:
+
+**Header**
+- Both subtitles hidden to reduce visual noise
+- "Beta" badge hidden
+- More compact padding
+- Hamburger menu fixed to top-right corner (doesn't overlap the title)
+
+**Filters**
+- Collapsed behind a "Filter by category" toggle button (desktop: always visible)
+
+**Explore mode**
+- 3-column card grid (desktop: flexible wrap)
+- Card front shows title only — badge, category label and hint hidden
+- Card back shows description only — no repeated title or hint
+- Card flip uses CSS crossfade instead of 3D rotation (iOS Safari compatibility)
+
+**Play mode**
+- Only Exprés mode available (16 cards) — duration selector skipped
+- Countdown timer disabled
+- "Timeline" and "Card to place" labels hidden to save space
+- Reduced spacing throughout
+- Scorebar shows only 2 metrics: Aciertos (correct) and Racha (streak) — desktop shows 6
+
+The full statistics panel (📊) remains available in both versions.
 
 ---
 
