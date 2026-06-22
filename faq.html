@@ -46,38 +46,12 @@ body {
   line-height: 1.7;
 }
 
-header {
-  text-align: center;
-  padding: 3rem 1rem 2rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8rem;
-  color: var(--text2);
-  text-decoration: none;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
-  transition: color 0.15s;
-}
-.back-link:hover { color: var(--text); }
-
-header h1 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: clamp(1.3rem, 3.5vw, 2rem);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-header p {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text2);
-}
+header { text-align: center; padding: 2.5rem 1rem 2rem; border-bottom: 1px solid var(--border); position: relative; }
+.back-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; color:var(--text2); text-decoration:none; margin-bottom:1.5rem; transition:color 0.15s; }
+.back-link:hover { color:var(--text); }
+.logo-wrap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin-bottom:0.25rem; }
+header h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.3rem,3.5vw,2rem); font-weight:800; color:var(--text); letter-spacing:0.18em; text-transform:uppercase; }
+header p { margin-top:0.5rem; font-size:0.85rem; color:var(--text2); }
 
 main {
   max-width: 720px;
@@ -151,8 +125,15 @@ footer a { color: var(--text3); }
 
 <header>
   <a class="back-link" href="/">← Volver al juego</a>
-  <h1><em>Antes o Después</em></h1>
-  <p>Preguntas frecuentes</p>
+  <div class="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 110" width="28" height="38">
+      <path d="M54,4 L54,20 L70,20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="38" y="82" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="64" font-weight="800" fill="currentColor" text-anchor="middle">?</text>
+      <line x1="8" y1="96" x2="68" y2="96" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <h1>Antes o Después</h1>
+  </div>
+  <p>La igualdad de género será real antes o después. Tú decides.</p>
 </header>
 
 <main>
@@ -255,6 +236,11 @@ footer a { color: var(--text3); }
   <div class="faq-item">
     <div class="faq-q" onclick="toggle(this)">¿Está en beta? ¿Qué significa eso? <span class="toggle">+</span></div>
     <div class="faq-a">Sí, el juego está actualmente en fase beta, lo que significa que es funcional y jugable pero todavía está en desarrollo activo. Pueden aparecer errores ocasionales y sigo añadiendo mejoras. Tu feedback en esta fase es especialmente valioso, escríbeme a <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">¿El juego es accesible? <span class="toggle">+</span></div>
+    <div class="faq-a">No, en este momento todavía no. Bajo las pautas de accesibilidad web (WCAG) hay varios puntos críticos que tengo pendiente revisar para asegurarme de que cualquier persona pueda interactuar con el juego sin barreras. Es mi siguiente punto en la hoja de ruta.</div>
   </div>
 
   <!-- PARA EDUCADORES -->
