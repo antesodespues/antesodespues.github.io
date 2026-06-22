@@ -821,6 +821,14 @@ let newCard      = null;
 let chosenPos    = -1;
 let deck          = [];
 let timerMode     = false;
+let gameActive    = false;
+
+window.addEventListener('beforeunload', (event) => {
+  if (gameActive) {
+    event.preventDefault();
+    event.returnValue = '';
+  }
+});
 let timerInterval = null;
 let timerSeconds  = 10;
 let streak        = 0;
@@ -1101,6 +1109,7 @@ function buildCatToggles(){
 
 
 function startGameWithSize(size){
+  gameActive = true;
   $('mode-selector').classList.remove('active');
   $('restart-btn').style.display='none';
   $('share-bar').style.display='none';
@@ -1138,6 +1147,7 @@ function dealNext(){
 }
 
 function endGame(){
+  gameActive = false;
   stopCountdown();
   newCard=null;
   $('hand-area').innerHTML='';
