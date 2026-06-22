@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Por qué existe esto · Antes o Después</title>
+<title>Por qué existe esto · <em>Antes o Después</em></title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDRJBBEN1P"></script>
 <script>
@@ -36,10 +36,20 @@ main { max-width:680px; margin:0 auto; padding:3.5rem 1.5rem 6rem; }
 .section-label { font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--text3); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); }
 p { font-size:1rem; color:var(--text2); line-height:1.8; margin-bottom:1.25rem; }
 p strong { color:var(--text); font-weight:600; }
+p em { font-style:italic; }
 .section { margin-bottom:3rem; }
 blockquote { border-left:3px solid var(--border2); padding:0.75rem 0 0.75rem 1.5rem; margin:1.75rem 0; font-style:italic; color:var(--text2); font-size:1rem; line-height:1.8; }
 footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--text3); border-top:1px solid var(--border); }
 footer a { color:var(--text3); }
+
+/* ── RRSS CARDS (proyecto) ── */
+.rrss-list { display:flex; flex-direction:column; gap:0.75rem; margin-top:1.25rem; }
+.rrss-item { display:flex; align-items:center; gap:0.85rem; padding:0.85rem 1rem; border-radius:10px; border:1.5px solid var(--border); text-decoration:none; color:var(--text); font-size:0.88rem; font-weight:600; transition:border-color 0.15s, background 0.15s; }
+.rrss-item:hover { border-color:var(--border2); background:rgba(0,0,0,0.02); }
+.rrss-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.rrss-desc { font-size:0.75rem; font-weight:400; color:var(--text2); margin-top:1px; }
+@media (prefers-color-scheme: dark) { .rrss-item:hover { background:rgba(255,255,255,0.03); } }
+
 </style>
 </head>
 <body>
@@ -52,7 +62,7 @@ footer a { color:var(--text3); }
       <text x="38" y="82" font-family="Plus Jakarta Sans,Arial,sans-serif" font-size="64" font-weight="800" fill="currentColor" text-anchor="middle">?</text>
       <line x1="8" y1="96" x2="68" y2="96" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <h1>Antes o Después</h1>
+    <h1><em>Antes o Después</em></h1>
   </div>
   <p>La igualdad de género será real antes o después. Tú decides.</p>
 </header>
@@ -61,46 +71,74 @@ footer a { color:var(--text3); }
   <h2 class="page-title">Por qué existe esto</h2>
 
   <div class="section">
+    <div class="section-label">Quién está detrás</div>
+    <p>Soy <strong>Paula</strong>, y aunque soy profesional del <strong>marketing y de la comunicación cultural</strong>, tengo una trayectoria anterior imprescindible para entender este miniproyecto: durante muchos años trabajé como <strong>monitora de ocio y tiempo libre educativo</strong>, y a raíz del Postgrado de Especialista en la Aplicación de la Perspectiva de Género en las Industrias Culturales de la Universidad Complutense (¡y de ser madre!) empecé a formarme en serio en <strong>igualdad de género y coeducación</strong>, especialmente en su aplicación con infancia y juventud.</p>
+    <div class="rrss-list" style="margin-top:1.25rem;">
+      <a class="rrss-item" href="https://www.linkedin.com/in/paulamara/" target="_blank" rel="noopener">
+        <div class="rrss-icon" style="background:#e8f0fe;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#0a66c2">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <div>
+          <div>Paula Mara Moreno Gil</div>
+          <div class="rrss-desc">linkedin.com/in/paulamara</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-label">El origen</div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt.</p>
-    <blockquote>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</blockquote>
-    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.</p>
+    <p><strong><em>Antes o Después</em></strong> nació como trabajo final del Curso de Especialista en Igualdad y Prevención de la Violencia de Género impartido por la Escuela de Ocio y Tiempo Libre "Carlos García de Guadiana" de la Dirección General de Juventud del Gobierno de Cantabria.</p>
+    <p>Probablemente tampoco habría surgido sin el Curso de Formación en Igualdad de Género y Coeducación organizado por la Asociación Ser Joven y la Escuela de Animación Juvenil y Tiempo Libre "Ser Joven", en el que jugamos a una versión parecida <strong>en su jornada de clausura</strong>, ni sin el Programa de Postgrado en Igualdad y Coeducación Práctica en el Aula y en la Familia de la UNED. Y sin <strong><a href="https://adalab.es" target="_blank" rel="noopener" style="color:var(--text);">Adalab</a></strong>, obviamente, esto serían un montón de <strong>cartas plastificadas</strong> en lugar de una web.</p>
+    <div class="rrss-list" style="flex-direction:row;flex-wrap:wrap;">
+      <a class="rrss-item" href="https://www.instagram.com/asociacionserjoven/?hl=es" target="_blank" rel="noopener" style="flex:1;min-width:200px;">
+        <div class="rrss-icon" style="background:#fce4ec;">📸</div>
+        <div>
+          <div>Asociación Ser Joven</div>
+          <div class="rrss-desc">@asociacionserjoven</div>
+        </div>
+      </a>
+      <a class="rrss-item" href="https://www.instagram.com/eotlcantabria/" target="_blank" rel="noopener" style="flex:1;min-width:200px;">
+        <div class="rrss-icon" style="background:#fce4ec;">📸</div>
+        <div>
+          <div>EOTL "Ser Joven"</div>
+          <div class="rrss-desc">@eotlcantabria</div>
+        </div>
+      </a>
+    </div>
+    <p style="margin-top:1.25rem;">El juego que entregué <strong>a contrarreloj</strong> como un ejercicio académico me dio pena que no tuviera más alcance, vi fácil adaptarlo a <strong>una versión digital</strong>, y unos meses después he conseguido sacar el tiempo para que puedas estar viéndolo.</p>
   </div>
 
   <div class="section">
-    <div class="section-label">El proceso</div>
-    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</p>
-    <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-    <blockquote>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt, neque porro quisquam est qui dolorem ipsum quia dolor sit amet.</blockquote>
-    <p>Consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+    <div class="section-label">Sobre el nombre</div>
+    <p><em>Antes o Después</em> tiene una <strong>doble lectura deliberada</strong>.</p>
+    <p>Por un lado, describe la mecánica principal: ordenar en una <strong>línea temporal</strong> distintos hitos, avances y personajes relacionados con la igualdad de género, invitando a pensar qué ocurrió antes y qué ocurrió después en la historia de los derechos de las mujeres.</p>
+    <p>Por otro, encierra un mensaje de fondo: la igualdad de género será real <em>antes o después</em>. El progreso puede ser lento, desigual, y a veces retrocede, pero es posible si existe <strong>compromiso, memoria y acción colectiva</strong>.</p>
+    <blockquote>El nombre resume la finalidad del juego: promover una comprensión crítica y esperanzadora de cómo han evolucionado los derechos humanos, recordando que cada avance tiene una historia y que cada generación puede contribuir al siguiente paso.</blockquote>
   </div>
 
   <div class="section">
-    <div class="section-label">La decisión de compartirlo</div>
-    <p>Nisi ut aliquid ex ea commodi consequatur, quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus.</p>
-    <p>Qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
-    <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-    <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+    <div class="section-label">Por qué no es solo un juego de mujeres ilustres</div>
+    <p>Al principio trabajé sobre una versión ampliada de <a href="https://julibert.com/we-can-play/" target="_blank" rel="noopener" style="color:var(--text);"><em>We Can Play</em></a>, más completa, con mujeres más diversas, con colectivos además de nombres propios. Pero cuanto más avanzaba, más incómoda me sentía con el enfoque.</p>
+    <p>El problema era presentar a las figuras femeninas como casos aislados: sin explicar <strong>por qué fueron excepcionales en su contexto histórico</strong>, sin mostrar <strong>los obstáculos estructurales</strong> que las rodeaban, leyes, educación, roles de género, violencias. Un juego centrado únicamente en biografías corre el riesgo de transmitir que la igualdad avanza porque unas pocas mujeres lucharon mucho o lograron hitos excepcionales. Y eso no es lo que quería contar.</p>
+    <p>La desigualdad <strong>no es un techo de cristal roto por algunas</strong>: es un fenómeno estructural, histórico y colectivo. Quería un juego que animara a <strong>descubrir y debatir sobre procesos, no solo sobre personas</strong>.</p>
+    <p>Por eso <em>Antes o Después</em> mantiene a las figuras femeninas relevantes, son imprescindibles, pero las enmarca junto a leyes, movimientos sociales, avances en salud, logros deportivos, referentes culturales y científicos. El conjunto cuenta <strong>una historia más honesta</strong>: la de cómo las sociedades cambian, a qué ritmo, con qué resistencias, y gracias a quiénes.</p>
   </div>
 
   <div class="section">
-    <div class="section-label">Lo que viene</div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
-    <p>Accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-    <blockquote>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</blockquote>
-    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum dolorem eum fugiat.</p>
-    <p>Quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</p>
+    <div class="section-label">Una herramienta abierta</div>
+    <p><em>Antes o Después</em> es <strong>gratuito, sin publicidad y de acceso libre</strong> porque ojalá todos los recursos educativos sobre igualdad pudieran serlo. Está pensado para docentes, profesionales de la educación, la formación, la dinamización y cualquier persona que quiera abrir una conversación sobre derechos con un grupo en torno a una actividad lúdica.</p>
+    <p>Si lo usas, me encantaría saberlo. Puedes escribirme desde la <a href="contacto.html" style="color:var(--text);">página de contacto</a>.</p>
+    <p>Sé que este juego podría crecer e iterar en muchas direcciones: una <strong>plataforma para crear tus propios juegos</strong> de línea del tiempo sobre cualquier tema, una web con retos diarios o efemérides del calendario feminista, un modo multijugador para retar a otras personas, versiones temáticas para otras luchas de derechos humanos, o incluso una app descargable para usar sin conexión en el aula. Pero la realidad es que, aparte de un par de mejoras ya decididas, es probable que no lo toque mucho más por falta de tiempo.</p>
+    <p>Si tú tienes <strong>ese tiempo que a mí me falta</strong>, siempre podemos hablar.</p>
   </div>
 
 </main>
 
 <footer>
-  © 2026 <strong>Antes o Después</strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> · <a href="mailto:paula@antesodespues.app">paula@antesodespues.app</a>
+  © 2026 <strong><em>Antes o Después</em></strong> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
 </footer>
 
 </body>
