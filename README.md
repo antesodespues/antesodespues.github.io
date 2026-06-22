@@ -51,6 +51,7 @@ antesodespues.github.io/
 ├── index.html        # Main game
 ├── faq.html          # Frequently asked questions
 ├── contacto.html     # Contact page
+├── guia.html         # Educator's guide
 ├── proyecto.html     # About the project (coming soon)
 ├── bibliografia.html # Bibliography (coming soon)
 └── README.md
@@ -95,16 +96,18 @@ The game is fully playable on mobile (portrait mode). The mobile version has bee
 - 3-column card grid (desktop: flexible wrap)
 - Card front shows title only — badge, category label and hint hidden
 - Card back shows description only — no repeated title or hint
-- Card flip uses CSS crossfade instead of 3D rotation (iOS Safari compatibility)
+- Tapping a card opens a full detail modal (title, description, year, category) instead of flipping — flip animation is not used on mobile
 
 **Play mode**
+- Card placement uses a **tap-to-place** mechanic: tap the golden card to select it, then tap the gap where you want to place it on the timeline (desktop uses drag & drop)
 - Only Exprés mode available (16 cards) — duration selector skipped
 - Countdown timer disabled
 - "Timeline" and "Card to place" labels hidden to save space
 - Reduced spacing throughout
 - Scorebar shows only 2 metrics: Aciertos (correct) and Racha (streak) — desktop shows 6
+- Instructions text adapted to describe the tap-to-place mechanic
 
-The full statistics panel (📊) remains available in both versions.
+The full statistics panel remains available in both versions.
 
 ---
 
