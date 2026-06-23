@@ -1094,7 +1094,7 @@ function buildCatToggles(){
   allBtn.className = 'cat-toggle' + (chosenCats.size===8?' selected':'');
   allBtn.style.setProperty('--cat-color','#f9ca24');
   allBtn.style.setProperty('--cat-bg','rgba(249,202,36,0.1)');
-  allBtn.innerHTML = '<span class="ct-icon">✨</span><span class="ct-name">Todas las categorías</span><span class="ct-check">'+(chosenCats.size===8?'✓':'')+'</span>';
+  allBtn.innerHTML = '<span class="ct-name">Todas las categorías</span><span class="ct-check">'+(chosenCats.size===8?'✓':'')+'</span>';
   allBtn.addEventListener('click',()=>{
     if(chosenCats.size===8) chosenCats=new Set(); else chosenCats=new Set([1,2,3,4,5,6,7,8]);
     buildCatToggles();
