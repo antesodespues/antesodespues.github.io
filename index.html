@@ -98,12 +98,13 @@ header p { margin-top: 0.5rem; font-size: 0.85rem; color: var(--text2); line-hei
 .game-instructions { background:var(--instr-bg); border:1px solid var(--instr-border); border-radius:14px; padding:1rem 1.25rem; margin-bottom:1.25rem; font-size:0.82rem; line-height:1.65; color:var(--instr-text); }
 .game-instructions strong { color:var(--instr-strong); }
 
-#deck-counter { font-size:0.75rem; color:var(--text3); text-align:center; margin-bottom:0.6rem; letter-spacing:0.05em; min-height:1.1rem; }
-#result-msg { text-align:center; font-size:1rem; font-weight:600; min-height:1.5rem; margin-bottom:1rem; }
+#deck-counter { font-size:0.75rem; color:var(--text3); text-align:center; margin-top:0.4rem; margin-bottom:0.75rem; letter-spacing:0.05em; min-height:1.1rem; }
+#result-msg { text-align:center; font-size:1rem; font-weight:600; min-height:0; margin-bottom:0.5rem; }
 #result-msg.correct { color:var(--correct); }
 #result-msg.wrong   { color:var(--wrong); }
 
 #timeline-label,#hand-label { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text3); margin-bottom:0.5rem; }
+#hand-label { text-align:center; }
 @media (max-width:768px) { #timeline-label, #hand-label { display:none !important; } }
 
 #timeline-area { min-height:130px; border:2px dashed var(--tl-border); border-radius:16px; padding:0.75rem; margin-bottom:1.5rem; display:flex; flex-wrap:wrap; gap:6px; align-items:stretch; overflow:visible; }
@@ -203,7 +204,7 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
 .cat-toggle.selected .ct-check { background:var(--cat-color); border-color:var(--cat-color); color:#fff; }
 
 /* COUNTDOWN TIMER */
-#countdown-bar-wrap { height:5px; background:var(--stats-bar-wrap); border-radius:4px; margin-bottom:1rem; overflow:hidden; display:none; }
+#countdown-bar-wrap { height:5px; background:var(--stats-bar-wrap); border-radius:4px; margin-bottom:0.4rem; overflow:hidden; display:none; }
 #countdown-bar { height:100%; background:#f9ca24; border-radius:4px; transition:width 0.1s linear; width:100%; }
 #countdown-bar.warning { background:#f87171; }
 
@@ -699,13 +700,13 @@ footer { text-align:center; padding:2rem 1rem; font-size:0.68rem; color:var(--fo
   <div class="game-instructions" id="game-instructions">
     <strong>¿Cómo jugar?</strong> <span id="how-to-play-text">Arrastra la carta dorada al hueco correcto de la línea del tiempo. Si aciertas, se queda y la línea crece. Si fallas, se descarta. ¡Intenta colocar todas las cartas!</span>
   </div>
-  <div id="deck-counter"></div>
   <div id="countdown-bar-wrap"><div id="countdown-bar"></div></div>
   <div id="result-msg"></div>
   <div id="timeline-label">Línea del tiempo <span style="font-weight:400;color:rgba(0,0,0,0.3);font-size:0.65rem;letter-spacing:0.03em;">· Pulsa cualquier carta para ver más info</span></div>
   <div id="timeline-area"><span class="tl-empty">Cargando partida…</span></div>
   <div id="hand-label">Carta a colocar</div>
   <div id="hand-area"></div>
+  <div id="deck-counter"></div>
   <button id="check-btn" onclick="checkOrder()">Comprobar</button>
   <button id="next-btn" onclick="dealNext()">Siguiente carta →</button>
   <button id="restart-btn" onclick="startGame()">↩ Nueva partida</button>
@@ -1124,6 +1125,7 @@ function buildCatToggles(){
 function startGameWithSize(size){
   gameActive = true;
   $('mode-selector').classList.remove('active');
+  $('mode-bar').style.display='none';
   $('restart-btn').style.display='none';
   $('share-bar').style.display='none';
   $('game-instructions').style.display='block';
@@ -1153,7 +1155,7 @@ function dealNext(){
   newCard=deck.shift();
   if(!newCard){ endGame(); return; }
 
-  $('deck-counter').textContent='Carta '+(roundsPlayed+1)+' · Quedan '+(deck.length)+' en el mazo';
+  $('deck-counter').textContent='Quedan '+(deck.length)+' en el mazo';
   renderTimeline(true);
   renderHand();
   startCountdown();
@@ -1169,6 +1171,7 @@ function endGame(){
   $('deck-counter').textContent='';
   $('result-msg').innerHTML='🎉 ¡Fin! Acertaste <strong>'+correct+'</strong> de <strong>'+roundsPlayed+'</strong> cartas.';
   $('result-msg').className=correct>=roundsPlayed*0.6?'correct':'';
+  $('mode-bar').style.display='';
   $('restart-btn').style.display='block';
   showShare(correct, roundsPlayed, bestStreak);
   renderTimeline(false);
