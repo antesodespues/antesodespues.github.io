@@ -1169,7 +1169,7 @@ function endGame(){
   $('check-btn').style.display='none';
   $('next-btn').style.display='none';
   $('deck-counter').textContent='';
-  $('result-msg').innerHTML='🎉 ¡Fin! Acertaste <strong>'+correct+'</strong> de <strong>'+roundsPlayed+'</strong> cartas.';
+  $('result-msg').innerHTML='¡Fin! Acertaste <strong>'+correct+'</strong> de <strong>'+roundsPlayed+'</strong> cartas.';
   $('result-msg').className=correct>=roundsPlayed*0.6?'correct':'';
   $('mode-bar').style.display='';
   $('restart-btn').style.display='block';
@@ -1285,14 +1285,14 @@ function checkOrder(){
     tlCards=combined;
     statsCat[newCard.cat].correct++;
     statsDecade[decade].correct++;
-    msg.textContent='✅ ¡Correcto! La carta se queda en la línea.';
+    msg.textContent='¡Correcto! La carta se queda en la línea.';
     msg.className='correct';
     triggerConfetti();
     triggerPopOk();
     if(streak>=3) floatEmoji(['🔥','⭐','💫','🎯'][Math.floor(Math.random()*4)]);
   } else {
     streak=0;
-    msg.textContent='❌ Era de '+newCard.year+', descartada.';
+    msg.textContent='Era de '+newCard.year+', descartada.';
     msg.className='wrong';
     triggerShake();
     floatEmoji(['😬','💥','❌'][Math.floor(Math.random()*3)]);
