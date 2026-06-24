@@ -18,7 +18,8 @@ The game has two modes:
 - 79 cards across 8 thematic categories
 - 3 game lengths: Exprés (16 cards), Media (40 cards), Extendida (up to 80 cards) — desktop only; mobile is Exprés only
 - Category selection for each game
-- Optional countdown timer (10 seconds per card) — desktop only
+- Optional countdown timer (10 seconds per card) — Exprés mode only, desktop only
+- Adaptive timeline width: wider layout (up to 8 cards per row) on screens above 1100px
 - Session statistics: streak, accuracy, breakdown by category and decade
 - Light/dark mode
 - Fully playable on mobile (portrait mode)
